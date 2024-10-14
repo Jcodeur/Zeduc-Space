@@ -1,0 +1,21 @@
+/* Personnalisation des sections */
+header {
+    background-image: url('background-image.jpg'); /* Image d'arrière-plan */
+    background-size: cover;
+    color: white;
+    
+}
+
+.about img {
+    border-radius: 10px;
+    max-width: 100%;
+}
+
+footer a {
+    color: #fff;
+    margin-right: 10px;
+}
+
+footer a:hover {
+    color: #f8d90f;
+}

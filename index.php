@@ -1,161 +1,126 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="fr">
 <head>
-	<meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>zeduc space</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />    
-	<link href="partie etudiante/css/templatemo-style.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeduc Space - Accueil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="HomePage.css">
 </head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <!-- Logo Image (Ajouter l'image ici) -->
+                <img src="images/logopetit.png" alt="Zeduc Space Logo" width="50">  
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Promotions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Évènements</a>
+                    </li>
+					<li class="nav-item">
+                        <a class="nav-link" href="formulaire_d_inscription.php">Inscription</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-warning" href="formulaire_de_connexion.php">Connexion</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<body> 
+    <!-- Header Section -->
+    <header class="text-center py-5" style="background-color: #000000; color: #fff;">
+        <div class="container">
+            <img src="images/logopetit.png" alt="Logo Central" class="mb-4">
+            <h2>Connectez-vous pour avoir accès à du bon mi@m mi@m</h2>
 
-	<div class="container">
-	<!-- Top box -->
-		<!-- Logo & Site Name -->
-		<div class="placeholder">
-			<div class="parallax-window" data-parallax="scroll" data-image-src="partie etudiante/img/simple-house-01.jpg">
-				<div class="tm-header">
-					<div class="row tm-header-inner">
-						<div class="col-md-6 col-12">
-							<img src="partie etudiante/img/simple-house-logo.png" alt="Logo" class="tm-site-logo" /> 
-							<div class="tm-site-text-box">
-								<h1 class="tm-site-title">Restaurant</h1>
-								<h6 class="tm-site-description">zeduc space</h6>	
-							</div>
-						</div>
-						<nav class="col-md-6 col-12 tm-nav">
-							<ul class="tm-nav-ul">
-								<li class="tm-nav-li"><a href="index.php" class="tm-nav-link active">Accueil</a></li>
-								<li class="tm-nav-li"><a href="formulaire_d_inscription.php" class="tm-nav-link">Inscription</a></li>
-								<li class="tm-nav-li"><a href="formulaire_de_connexion.php" class="tm-nav-link">Connexion</a></li>
-							</ul>
-						</nav>	
-					</div>
-				</div>
-			</div>
-		</div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-lg-4">
+                        <img src="images/jr 1.png" alt="Logo Central" class="mb-4">
+                    </div>
+                    <div class="col-md-4 col-lg-4 text-center">
 
-		<main>
-			<header class="row tm-welcome-section">
-				<h2 class="col-12 text-center tm-section-title">Bienvenue dans le Zeduc Space</h2>
-				<p class="col-12 text-center">Ici dans notre restaurant vous trouverez un bon miam miam qui vous permettra de donner du bonheur à votre ventre qui ne demande que satisfaction</p>
-			</header>
-			
-			<div class="tm-paging-links">
-				<!--<nav>
-					<ul>
-						<li class="tm-paging-item"><a href="#" class="tm-paging-link active">Nourriture</a></li>
-						<li class="tm-paging-item"><a href="#" class="tm-paging-link">Boisson</a></li>
-					</ul>
-				</nav> -->
-			</div>
+                    </div>
+    
+                    <div class="col-md-4 col-lg-4">
+                        <img src="images/image 2.png" alt="Logo Central" class="mb-4">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-			<!-- Gallery -->
-			<div class="row tm-gallery">
-				
-				<!-- gallery page 1 -->
-				<div id="tm-gallery-page-pizza" class="tm-gallery-page">
-				<?php 
-				  function affiche_le_plat($lien_de_l_image_du_plat,$nom_du_plat,$description_du_plat,$prix){  
-				?>
-				 <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-						<figure>
-						<img src="<?php echo $lien_de_l_image_du_plat; ?>" alt="Image" class="img-fluid tm-gallery-img" />
-							<figcaption>
-								<h4 class="tm-gallery-title"><?php echo $nom_du_plat ; ?></h4>
-								<p class="tm-gallery-description"><?php echo $description_du_plat ; ?></p>
-								<p class="tm-gallery-price"><?php echo $prix." FCFA" ; ?></p>
-							</figcaption>
-						</figure>
-				  </article>
-				<?php 
-				  }
+    <!-- About Section -->
+    <section class="about py-5"  style="background-color: #000000; color: #fff;">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <img src="images/food1.png" alt="Food Image" class="img-fluid mb-3">
+                    <p>ZEDUC-SPACE est un restaurant qui combine trois concepts distincts : la haute gastronomie, le service rapide et une ambiance familiale chaleureuse.</p>
+                </div>
+                <div class="col-md-3">
+                    <img src="images/food2.png" alt="Food Image" class="img-fluid mb-3">
+                    <p>Situé dans un cadre moderne et élégant, ZEDUC-SPACE propose des plats raffinés, préparés à partir des ingrédients frais soigneusement sélectionnés par des Chefs talentueux.</p>
+                </div>
+                <div class="col-md-3">
+                    <img src="images/food3.png" alt="Food Image" class="img-fluid mb-3">
+                    <p>Le restaurant offre la qualité d’un service gastronomique, tout en garantissant une rapidité d’exécution pour satisfaire les clients pressés.</p>
+                </div>
+                <div class="col-md-3">
+                    <img src="images/food4.png" alt="Food Image" class="img-fluid mb-3">
+                    <p>Que ce soit pour une pause déjeuner rapide ou un dîner en famille, ZEDUC-SPACE s’adapte à tous les besoins avec une touche d’élégance et de convivialité.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-				  require "interaction_sur_la_base_de_donnee.php" ;//ensuite appel du fichier qui va me permettre de me connecter a ma base de donnée
-  
-				  $ma_base_de_donnee = new interaction() ; ///creation d un objet
-				  $ma_base_de_donnee->connexion_sur_la_BD("localhost","root","","zeduc_space") ; //methode me permettant de me connecter a ma base de donée
-			
+    <!-- Footer Section -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-lg-4">
+                    <p>Contact:</p>
+                    <ul>
+                        <li>Téléphone : +237 666666666</li>
+                        <li>Email : zeducspace@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-4 text-center">
+                    <p>Social Media:</p>
+                    <a href="#">  <img src="images/Buttonfacebook 2.png" alt="Facebook">  <i class="bi bi-facebook"></i></a>
+                    <a href="#">  <img src="images/Button twitter 2.png" alt="Twitter"> <i class="bi bi-twitter"></i></a>
+                    <a href="#">  <img src="images/Button (2) 2.png" alt="IG"> <i class="bi bi-linkedin"></i></a>
+                </div>
 
-				  require "simplificateur_de_syntaxe.php" ;  //ceci est la recuperation d un fichier contenant une classe avec des methodes pour simplifier la syntaxe de mes requetes
-				  $simplificateur = new Simplificateur_de_syntaxe("index") ; //creation d un objet qui va m aider a creer ma liste de presence
-				  
-				  $recherche_de_l_id = $ma_base_de_donnee->connexion->prepare("SELECT id_plat FROM plats  ");
-				  $simplificateur->execute_la_recherche( $recherche_de_l_id);
-				  $tableau_d_identifiant = $simplificateur->stocke_le_resultat_de_la_requete( $recherche_de_l_id, "id_plat");
+                <div class="col-md-4 col-lg-4">
+                    <p>Localisation:</p>
+                    <ul>
+                        <li>Yansoki / Yatchika</li>
+                        <li>Site précisément à la cité Terrasse</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-				  foreach ($tableau_d_identifiant as $id_plat) {
-
-					$recherche_du_plat = $ma_base_de_donnee->connexion->prepare("SELECT * FROM plats WHERE id_plat = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
-					$recherche_du_plat->bind_param("i",$id_plat) ;
-					$simplificateur->execute_la_recherche($recherche_du_plat) ; //cette methode me permet d executer ma requete de  recherche
-					$tableau_nom_du_plat =   $simplificateur->stocke_le_resultat_de_la_requete( $recherche_du_plat,"nom_du_plat") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
-					$nom_du_plat =  $tableau_nom_du_plat[0] ; //recuperation du nom de l ecran
-                    
-					$recherche_du_plat = $ma_base_de_donnee->connexion->prepare("SELECT * FROM plats WHERE id_plat = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
-					$recherche_du_plat->bind_param("i",$id_plat) ;
-					$simplificateur->execute_la_recherche($recherche_du_plat) ; //cette methode me permet d executer ma requete de  recherche
-					$tableau_photo_du_plat =   $simplificateur->stocke_le_resultat_de_la_requete( $recherche_du_plat,"photo_du_plat") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
-					$nom_de_la_photo_du_plat =  $tableau_photo_du_plat[0] ; //recuperation du nom de l ecran
-                    
-					  
-					$recherche_du_plat = $ma_base_de_donnee->connexion->prepare("SELECT * FROM plats WHERE id_plat = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
-					$recherche_du_plat->bind_param("i",$id_plat) ;
-					$simplificateur->execute_la_recherche($recherche_du_plat) ; //cette methode me permet d executer ma requete de  recherche
-					$tableau_prix_du_plat =   $simplificateur->stocke_le_resultat_de_la_requete( $recherche_du_plat,"prix") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
-					$prix_du_plat =  $tableau_prix_du_plat[0] ; //recuperation du nom de l ecran
-                    
-					$recherche_du_plat = $ma_base_de_donnee->connexion->prepare("SELECT * FROM plats WHERE id_plat = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
-					$recherche_du_plat->bind_param("i",$id_plat) ;
-					$simplificateur->execute_la_recherche($recherche_du_plat) ; //cette methode me permet d executer ma requete de  recherche
-					$tableau_de_description_du_plat =   $simplificateur->stocke_le_resultat_de_la_requete( $recherche_du_plat,"description") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
-					$description =  $tableau_de_description_du_plat[0] ; //recuperation du nom de l ecran
-                    
-
-					
-					affiche_le_plat($nom_de_la_photo_du_plat,$nom_du_plat ,$description,$prix_du_plat) ;  
-					
-				  }
-				  
-				?>
-				
-				
-				</div> <!-- gallery page 2 -->
-				
-				<!-- gallery page 3 -->
-			
-			</div>
-			
-		</main>
-
-		<footer class="tm-footer text-center">
-			<p>Copyright &copy; 2024 zeduc Space
-            
-            | Design By: <a rel="nofollow" href="#">GROUPE 7</a></p>
-		</footer>
-	</div>
-	<script src="partie etudiante/js/jquery.min.js"></script>
-	<script src="partie etudiante/js/parallax.min.js"></script>
-	<script>
-		$(document).ready(function(){
-			// Handle click on paging links
-			$('.tm-paging-link').click(function(e){
-				e.preventDefault();
-				
-				var page = $(this).text().toLowerCase();
-				$('.tm-gallery-page').addClass('hidden');
-				$('#tm-gallery-page-' + page).removeClass('hidden');
-				$('.tm-paging-link').removeClass('active');
-				$(this).addClass("active");
-			});
-		});
-	</script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
-
-
