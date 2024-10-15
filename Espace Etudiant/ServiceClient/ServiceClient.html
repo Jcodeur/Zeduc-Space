@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création de compte - ZEDUC-SP@CE</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="ServiceClient.css">
+</head>
+<body>
+    
+
+    <header>
+        <!-- Navbar -->
+     <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <!-- Place here your logo image -->
+                <img src="../logo.png" alt="Logo" width="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Menu/Menu.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../ServiceClient/ServiceClient.html">Services Clients</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Autres
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Événement</a></li>
+                            <li><a class="dropdown-item" href="../Fidélité/fidelite.html">Programme de fidélité</a></li>
+                            <li><a class="dropdown-item" href="#">Historique des commandes</a></li>
+                            <li><a class="dropdown-item" href="../ServiceClient/ServiceClient.html">Réclamations</a></li>
+                            <li><a class="dropdown-item" href="#">Jeux</a></li>
+                            <li><a class="dropdown-item" href="../Top10/CustomerRanking.html">10 Meilleurs clients</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <a class="btn btn-warning" href="../index.html">LogOut</a>
+            </div>
+            <div class="ecriture">
+                essai  
+            </div>
+        </div>
+    </nav>
+    <div class="Titre"><h2  class="text-center" >SERVICE CLIENT</h2></div>
+    </header>
+
+    <main class="container my-5">
+        <section class="text-center mb-5">
+            
+            <h3>FORMULAIRE DE RECLAMATION</h3>
+            <hr class="w-50 mx-auto">
+        </section>
+        <form class="mx-auto" style="max-width: 600px;">
+            <div class="form-group mb-4">
+                <label for="nom">Nom d'utilisateur</label>
+                <input type="text" class="form-control" id="nom" placeholder="Nom d'utilisateur">
+            </div>
+            <div class="form-group mb-4">
+                <label for="telephone">Numéro de téléphone</label>
+                <input type="tel" class="form-control" id="telephone" placeholder="Numéro de téléphone">
+            </div>
+            <div class="form-group mb-4">
+                <label for="type">Type de Réclamation</label>
+                <input type="text" class="form-control" id="type" placeholder="Type de Réclamation">
+            </div>
+            <div class="form-group mb-4">
+                <label for="sujet">Sujet de réclamation</label>
+                <input type="text" class="form-control" id="sujet" placeholder="Sujet de réclamation">
+            </div>
+            <div class="form-group mb-4">
+                <label for="commentaires">Commentaires/Détails</label>
+                <textarea class="form-control" id="commentaires" rows="4" placeholder="Commentaires/Détails"></textarea>
+            </div>
+            <div class="form-group mb-4">
+                <label for="employee">Cette Réclamation concerne t'elle un employé?</label>
+                <input type="text" class="form-control" id="employee" placeholder="Oui ou Non">
+            </div>
+            <div class="form-group mb-4">
+                <label for="details">Si la réponse précédente était oui, quel est son nom ou Id si vous le connaissez</label>
+                <input type="text" class="form-control" id="details" placeholder="Nom ou Id de l'employé">
+            </div>
+            <button type="submit" class="btn btn-dark btn-block">Envoyer la réclamation</button>
+        </form>
+    </main>
+
+    <footer class="bg-dark text-white py-3">
+        <div class="container text-center">
+            <div class="d-flex justify-content-center">
+                <!-- Remplacez les sources d'image avec les icônes appropriées -->
+                <img src="../Buttonfacebook 2.png" alt="Facebook" class="mx-2" style="width: 30px;">
+                <img src="../Button twitter 2.png" alt="Twitter" class="mx-2" style="width: 30px;">
+                <img src="../Button (2) 2.png" alt="Instagram" class="mx-2" style="width: 30px;">
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

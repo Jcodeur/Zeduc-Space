@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.Titre
+{
+    padding: 20px;
+    background-color: #bbb;
+    justify-content: center;
+    justify-items: center;
+}
+.navbar {
+    background-color: #343a40;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    text-transform: uppercase;
+}
+
+.ecriture
+{
+    color: #ffae00;
+    text-transform: uppercase;
+    margin-top: 10px;
+    
+}
+
+.alignresult
+{
+    display: flex;
+    flex-direction: row;
+   
+    
+}
+
+.resultgame {
+    margin-left: 10px; 
+    margin-top: 8px;
+}
+
+
+.dropdown-menu {
+    background-color: #343a40;
+    border: none;
+}
+
+.dropdown-item:hover {
+    background-color: #ffae00;
+    color: #000;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 20px;
+    text-align: left;
+}
+
+footer ul {
+    list-style-type: none;
+}
+
+footer a {
+    margin: 0 5px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ffae00;
+}

@@ -1,0 +1,99 @@
+/* Reset de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.navbar {
+    background-color: #343a40;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    text-transform: uppercase;
+}
+
+.navbar-brand img {
+    width: 50px;
+    height: auto;
+}
+
+.dropdown-menu {
+    background-color: #343a40;
+    border: none;
+}
+
+.dropdown-item {
+    color: #ffffff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown-item:hover {
+    background-color: #ffae00;
+    color: #000000;
+}
+
+.Titre {
+    background-color: #D9D9D9;
+    padding: 20px;
+    width: 100%;
+}
+
+.ecriture
+{
+    color: #ffae00;
+    text-transform: uppercase;
+    margin-top: 15px;
+    
+}
+
+.customer-icon {
+    
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 50%;
+}
+
+.rank {
+    font-size: 1.5rem;
+    color: #ffae00;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: left;
+}
+
+footer ul {
+    list-style-type: none;
+}
+
+.social-icons a {
+    margin: 0 5px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #ffae00;
+}
