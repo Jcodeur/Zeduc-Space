@@ -71,10 +71,10 @@
             <img src="images/LOGO.png" alt="Logo" width="200" class="mb-4 rotating-logo">
             <form method="post" action="backend_de_connexion.php">
                 <div class="mb-3">
-                    <input type="email" class="form-control form-control-lg" value="<?php echo isset($_SESSION["formulaire_email"]) && !empty( $_SESSION["formulaire_email"] ) ? htmlspecialchars( $_SESSION["formulaire_email"] ) : ''; ?>" placeholder="Email" required>
+                    <input type="email" class="form-control form-control-lg" name="mail" value="<?php echo isset($_SESSION["formulaire_email"]) && !empty( $_SESSION["formulaire_email"] ) ? htmlspecialchars( $_SESSION["formulaire_email"] ) : ''; ?>" placeholder="Email" required>
                 </div>
                 <div class="mb-3">
-                    <input type="password" class="form-control form-control-lg" value="<?php echo isset( $_SESSION["formulaire_mot_de_passe"] ) && !empty( $_SESSION["formulaire_mot_de_passe"]) ? htmlspecialchars( $_SESSION["formulaire_mot_de_passe"] ) : ''; ?>" placeholder="Password" required>
+                    <input type="password" class="form-control form-control-lg" name="mot_de_passe" value="<?php echo isset( $_SESSION["formulaire_mot_de_passe"] ) && !empty( $_SESSION["formulaire_mot_de_passe"]) ? htmlspecialchars( $_SESSION["formulaire_mot_de_passe"] ) : ''; ?>" placeholder="Password" required>
                 </div>
                 <button type="submit" class="btn btn-custom btn-lg w-100 mb-3">Connexion</button>
                 <a href="index.php" class="text-warning">Accueil</a><br>

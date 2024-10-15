@@ -5,12 +5,16 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Navbar */
 .navbar, .footer {
     background-color: #2a2a2a;
     padding: 10px 20px;
+    justify-content: space-between;
 }
 
 /* Formulaire */
@@ -19,7 +23,15 @@ body {
     margin: 50px auto;
     text-align: center;
     padding: 20px;
+    flex-grow: 1;
 }
+
+
+.biglogo
+{
+    margin-bottom: 50px;
+}
+
 
 .form-control {
     background-color: #f8f1f1;
@@ -31,6 +43,7 @@ body {
     border-color: #ffa500;
     box-shadow: none;
     background-color: #2a2a2a;
+    color: white;
 }
 
 .btn-custom {
@@ -46,11 +59,18 @@ body {
 
 /* Style pour le logo (rotation) */
 .rotating-logo {
-    transition: transform 0.5s ease-in-out; /* Ajoute une transition fluide */
+    transition: transform 1s ease-in-out;
+    animation: rotation3D 5s infinite linear;
+    transform-origin: center;
 }
 
-.rotating-logo:hover {
-    transform: rotate(360deg); /* Rotation complète du logo */
+@keyframes rotation3D {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
 }
 
 
