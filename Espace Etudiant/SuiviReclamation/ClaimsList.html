@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi de Réclamations</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Claim.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="../logo.png" alt="Logo" width="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Menu/Menu.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../ServiceClient/ServiceClient.html">Services Clients</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Autres
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Événement</a></li>
+                            <li><a class="dropdown-item" href="../Fidélité/fidelite.html">Programme de fidélité</a></li>
+                            <li><a class="dropdown-item" href="#">Historique des commandes</a></li>
+                            <li><a class="dropdown-item" href="../ServiceClient/ServiceClient.html">Réclamations</a></li>
+                            <li><a class="dropdown-item" href="#">Jeux</a></li>
+                            <li><a class="dropdown-item" href="../Top10/CustomerRanking.html">10 Meilleurs clients</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <a class="btn btn-warning" href="#">Log out</a>
+            </div>
+            <div class="ecriture">
+                essai  
+            </div>
+        </div>
+       
+    </nav>
+    <div class="Titre"><h1 class="text-center ">ZEDUC SP@CE LIST OF CLAIMS </h1></div>
+    <!-- Main Content -->
+    <div class="container my-5">
+        <h2 class="text-center mt-4">PRESENTATION DES RECLAMATION</h2>
+        <p class="text-center">Les points de fidélité sont un système de récompense mis en place pour encourager les étudiants à passer régulièrement des commandes et à participer aux activités du restaurant :</p>
+        
+        <div class="fidelity-section">
+            <div class="fidelity-card">
+                <h3 id="">Réclammation 1 : </h3>
+                <p>Chaque commande effectuée rapporte un certain nombre de points, le montant de points peut varier en fonction du total de la commande ou des offres promotionnelles en cours.</p>
+            </div>
+            <div class="fidelity-card">
+                <h3 id="">Réclammation 2 : </h3>
+                <p>Un moment convivial pour échanger et partager nos expériences généralistes.</p>
+            </div>
+            <div class="fidelity-card">
+                <h3 id="">Réclammation 1 : </h3>
+                <p>Lorsqu’un étudiant utilise son code de parrainage pour inviter d’autres étudiants, il gagne des points supplémentaires chaque fois qu’un filleul passe une commande.</p>
+            </div>
+            <div class="fidelity-card">
+                <h3 id="">Réclammation 1 : </h3>
+                <p>Le restaurant organise des mini-jeux ou des événements pour les étudiants, leur permettant de gagner des points supplémentaires en fonction de leur performance ou de leur participation.</p>
+            </div>
+            <br>
+            <br>
+            Voulez vous faire une nouvelle Réclamation
+        </div>
+        <button onclick="window.location.href='../ServiceClient/ServiceClient.html'" class="newclaim-btn">Service Client </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-white bg-dark">
+        <div class="container d-flex justify-content-between py-3">
+            <div>
+                <p>Contact:</p>
+                <ul>
+                    <li>Téléphone: +237 666666666</li>
+                    <li>Email: zeducspace@gmail.com</li>
+                </ul>
+            </div>
+            <div>
+                <p>Social Media:</p>
+                <div class="social-icons">
+                    <a href="#">  <img src="../Buttonfacebook 2.png" alt="Facebook">  <i class="bi bi-facebook"></i></a>
+                    <a href="#">  <img src="../Button twitter 2.png" alt="Twitter"> <i class="bi bi-twitter"></i></a>
+                    <a href="#">  <img src="../Button (2) 2.png" alt="IG"> <i class="bi bi-linkedin"></i></a>
+                    
+                </div>
+            </div>
+            <div>
+                <p>Localisation</p>
+                <ul>
+                    <li>Yansoki / Yatchika</li>
+                    <li>Situé précisément à la cité Terrasse</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

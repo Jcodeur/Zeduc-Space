@@ -72,6 +72,7 @@ h1, h2 {
 
 .fidelity-section {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 30px;
@@ -83,7 +84,7 @@ h1, h2 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin: 10px;
-    width: 45%;
+    width: 80%;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -104,7 +105,7 @@ h1, h2 {
 }
 
 /* Bouton visiter */
-.visit-btn {
+.newclaim-btn {
     background-color: #343a40;
     color: #ffffff;
     border: none;
@@ -114,7 +115,7 @@ h1, h2 {
     transition: background-color 0.3s, transform 0.3s;
 }
 
-.visit-btn:hover {
+.newclaim-btn:hover {
     background-color: #ffae00;
     color: #000000;
     transform: scale(1.05);
@@ -146,7 +147,6 @@ footer ul {
 .social-icons a:hover {
     color: #ffae00;
 }
-
 
 /* Responsive design */
 @media (max-width: 576px) {
