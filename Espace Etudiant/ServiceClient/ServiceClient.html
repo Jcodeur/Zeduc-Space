@@ -64,50 +64,60 @@
             <hr class="w-50 mx-auto">
         </section>
         <form class="mx-auto" style="max-width: 600px;">
-            <div class="form-group mb-4">
-                <label for="nom">Nom d'utilisateur</label>
-                <input type="text" class="form-control" id="nom" placeholder="Nom d'utilisateur">
-            </div>
-            <div class="form-group mb-4">
-                <label for="telephone">Numéro de téléphone</label>
-                <input type="tel" class="form-control" id="telephone" placeholder="Numéro de téléphone">
-            </div>
+            
             <div class="form-group mb-4">
                 <label for="type">Type de Réclamation</label>
-                <input type="text" class="form-control" id="type" placeholder="Type de Réclamation">
+                <select class="form-control" id="type" onchange="remplirChamp(this.value)">
+                    <option value="Null"> Choisir une option </option>
+                    <option value="Client"> Concernant un autre client </option>
+                    <option value="Employé">Concernant un Employé</option>
+                    <option value="Nourriture">Concernant un Plat</option>
+                    <option value="Autre">Autre</option>
+                </select>
             </div>
             <div class="form-group mb-4">
-                <label for="sujet">Sujet de réclamation</label>
+                <label for="sujet">Titre de réclamation</label>
                 <input type="text" class="form-control" id="sujet" placeholder="Sujet de réclamation">
+                
             </div>
             <div class="form-group mb-4">
                 <label for="commentaires">Commentaires/Détails</label>
                 <textarea class="form-control" id="commentaires" rows="4" placeholder="Commentaires/Détails"></textarea>
             </div>
-            <div class="form-group mb-4">
-                <label for="employee">Cette Réclamation concerne t'elle un employé?</label>
-                <input type="text" class="form-control" id="employee" placeholder="Oui ou Non">
-            </div>
-            <div class="form-group mb-4">
-                <label for="details">Si la réponse précédente était oui, quel est son nom ou Id si vous le connaissez</label>
-                <input type="text" class="form-control" id="details" placeholder="Nom ou Id de l'employé">
-            </div>
+            
             <button type="submit" class="btn btn-dark btn-block">Envoyer la réclamation</button>
         </form>
     </main>
 
-    <footer class="bg-dark text-white py-3">
-        <div class="container text-center">
-            <div class="d-flex justify-content-center">
-                <!-- Remplacez les sources d'image avec les icônes appropriées -->
-                <img src="../Buttonfacebook 2.png" alt="Facebook" class="mx-2" style="width: 30px;">
-                <img src="../Button twitter 2.png" alt="Twitter" class="mx-2" style="width: 30px;">
-                <img src="../Button (2) 2.png" alt="Instagram" class="mx-2" style="width: 30px;">
-
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Contact :</h5>
+                    <p>Telephone : +237 666666666</p>
+                    <p>Email : Zeducspace@gmail.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Social Media :</h5>
+                    <div class="social-icons">
+                        <a href="#">  <img src="../Buttonfacebook 2.png" alt="Facebook">  <i class="bi bi-facebook"></i></a>
+                        <a href="#">  <img src="../Button twitter 2.png" alt="Twitter"> <i class="bi bi-twitter"></i></a>
+                        <a href="#">  <img src="../Button (2) 2.png" alt="IG"> <i class="bi bi-linkedin"></i></a>
+                    
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Localisation :</h5>
+                    <p>Yansoki /Yatchika</p>
+                    <p>Situé précisément à la cité Terrasse</p>
+                </div>
             </div>
         </div>
     </footer>
 
+
+    
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

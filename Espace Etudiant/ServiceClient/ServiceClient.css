@@ -1,8 +1,11 @@
-/* Custom styles for the page */
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 /* Navbar */
-.navbar, .footer {
+.navbar {
     background-color: #2a2a2a;
     padding: 10px 20px;
     justify-content: space-between;
@@ -10,9 +13,7 @@
 
 
 /* Personnalisation des bordures des champs de saisie */
-input[type="text"],
-input[type="email"],
-input[type="tel"] {
+input[type="text"] {
     
     padding: 10px; /* Ajoute un peu de padding à l'intérieur du champ */
     width: 100%; /* S'assure que le champ prend toute la largeur du conteneur */
@@ -21,10 +22,7 @@ input[type="tel"] {
 }
 
 /* Changement de la bordure lors du focus */
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-input[type="tel"]:focus {
+input[type="text"]:focus {
     border-color: #007bff; /* Change la couleur de la bordure au bleu lors du focus */
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Ajoute une ombre bleue */
     outline: none; /* Supprime le contour par défaut */
@@ -70,6 +68,22 @@ form .form-group {
 .btn-block {
     padding: 10px;
     font-size: 18px;
+}
+
+
+/* Footer */
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 20px;
+    width: 100%;
+    text-align: left;
+    justify-content: space-between;
+    margin-bottom: 0px;
+}
+
+footer ul {
+    list-style-type: none;
 }
 
 /* Images des réseaux sociaux */

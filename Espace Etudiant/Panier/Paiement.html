@@ -65,15 +65,76 @@
         </section>
         
     </main>
+    <br>
+    <br>
+    
 
-    <footer class="bg-dark text-white py-3">
-        <div class="container text-center">
-            <div class="d-flex justify-content-center">
-                <!-- Remplacez les sources d'image avec les icônes appropriées -->
-                <img src="../Buttonfacebook 2.png" alt="Facebook" class="mx-2" style="width: 30px;">
-                <img src="../Button twitter 2.png" alt="Twitter" class="mx-2" style="width: 30px;">
-                <img src="../Button (2) 2.png" alt="Instagram" class="mx-2" style="width: 30px;">
+    <div class="container my-5">
+        <div class="Facture">
+            <table class="table table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Designation</th>
+                        <th>Qte</th>
+                        <th>Prix Unitaire</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="ligne1">
+                        <td>Produit 1</td>
+                        <td>2</td>
+                        <td>1000 FCFA</td>
+                        <td>2000 FCFA</td>
+                    </tr>
+                    <tr id="ligne2">
+                        <td>Produit 2</td>
+                        <td>1</td>
+                        <td>1000 FCFA</td>
+                        <td>1000 FCFA</td>
+                    </tr>
+                    <tr id="ligne3">
+                        <td>Produit 3</td>
+                        <td>3</td>
+                        <td>500 FCFA</td>
+                        <td>1500 FCFA</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td colspan="3" class="text-end">Total :</td>
+                        <td>4500 FCFA</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-dark mt-3">Valider la Commande</button>
+            </div>
+        </div>
+    
+    </div>
 
+     <!-- Footer -->
+     <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Contact :</h5>
+                    <p>Telephone : +237 666666666</p>
+                    <p>Email : Zeducspace@gmail.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Social Media :</h5>
+                    <div class="social-icons">
+                        <a href="#">  <img src="../Buttonfacebook 2.png" alt="Facebook">  <i class="bi bi-facebook"></i></a>
+                        <a href="#">  <img src="../Button twitter 2.png" alt="Twitter"> <i class="bi bi-twitter"></i></a>
+                        <a href="#">  <img src="../Button (2) 2.png" alt="IG"> <i class="bi bi-linkedin"></i></a>
+                    
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Localisation :</h5>
+                    <p>Yansoki /Yatchika</p>
+                    <p>Situé précisément à la cité Terrasse</p>
+                </div>
             </div>
         </div>
     </footer>

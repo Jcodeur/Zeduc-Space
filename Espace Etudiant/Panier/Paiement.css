@@ -1,5 +1,9 @@
 /* Custom styles for the page */
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 /* Navbar */
 .navbar, .footer {
@@ -25,6 +29,14 @@
     
 }
 
+
+
+.Facture
+{
+    margin-bottom: 500px;
+}
+
+
 .logo {
     width: 50px;
     height: 50px;
@@ -49,8 +61,22 @@ form .form-group {
 .btn-block {
     padding: 10px;
     font-size: 18px;
+    
 }
 
+
+/* Footer */
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 20px;
+    width: 100%;
+    text-align: left;
+}
+
+footer ul {
+    list-style-type: none;
+}
 /* Images des réseaux sociaux */
 footer img {
     height: 30px;
