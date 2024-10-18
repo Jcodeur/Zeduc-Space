@@ -24,7 +24,6 @@ const displayEvents = (filteredEvents) => {
                     <div class="card-body">
                         <h5 class="card-title">${event.title}</h5>
                         <p class="card-text">${event.description}</p>
-                        <a href="EventDetails.html?id=${event.id}" class="btn btn-warning">Voir Plus</a>
                     </div>
                 </div>
             </div>
