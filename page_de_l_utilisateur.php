@@ -16,7 +16,7 @@
 
 				
 <?php
-  function affiche_le_plat($nom_du_plat,$nom_de_la_photo_du_plat,$prix_du_plat,$description){
+  function affiche_le_plat($nom_du_plat,$nom_de_la_photo_du_plat,$prix_du_plat,$description,$id_plat){
 ?>
 
 <div class="col-md-4 mb-4">
@@ -26,7 +26,7 @@
               <h5 class="card-title"><?php echo $nom_du_plat ; ?></h5>
               <p class="card-text"><?php echo $description ; ?></p>
               <p class="text-warning"><?php echo $prix_du_plat ; ?></p>
-              <a href="#" class="btn btn-warning">Commander</a>
+              <a  id="<?php echo $id_plat ; ?>"  class="btn btn-warning">Commander</a>
             </div>
     </div>
 </div>
@@ -81,7 +81,10 @@
                         <a class="nav-link" href="#">Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Services Clients</a>
+                        <a class="nav-link" href="formulaire_de_commande.php">Voir Le Panier</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formulaire_de_reclamation.php">Services Clients</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -113,7 +116,9 @@
     <!-- Menu Section -->
     <div class="container my-5">
         <div class="row">
-					
+       
+
+	
 		<?php 
 						
 			$recherche_de_l_id = $ma_base_de_donnee->connexion->prepare("SELECT id_plat FROM plats  ");
@@ -147,12 +152,13 @@
 			$tableau_de_description_du_plat =   $simplificateur->stocke_le_resultat_de_la_requete( $recherche_du_plat,"description") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
 			$description =  $tableau_de_description_du_plat[0] ; //recuperation du nom de l ecran
 			
-			affiche_le_plat($nom_du_plat,$nom_de_la_photo_du_plat,$prix_du_plat,$description) ;
+			affiche_le_plat($nom_du_plat,$nom_de_la_photo_du_plat,$prix_du_plat,$description,$id_plat) ;
 			
 			}
 						
 		?>
-         
+        
+      
       
         </div>
     </div>
@@ -183,6 +189,71 @@
             </div>
         </div>
     </footer>
+    <script>
+                // Fonction pour créer un cookie avec un nom, une valeur et un délai d'expiration
+                function setCookie(name, value, days) {
+                    var expires = "";
+                    if (days) {
+                        var date = new Date();
+                        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                        expires = "; expires=" + date.toUTCString();
+                    }
+                    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+                }
+
+                // Fonction pour obtenir la valeur d'un cookie par son nom
+                function getCookie(name) {
+                    var nameEQ = name + "=";
+                    var ca = document.cookie.split(';');
+                    for (var i = 0; i < ca.length; i++) {
+                        var c = ca[i];
+                        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+                    }
+                    return null;
+                }
+
+                // Récupérer tous les éléments qui ont un attribut "id"
+                var elements_avec_id = document.querySelectorAll('[id]');
+
+                // Boucle pour parcourir chaque élément
+                elements_avec_id.forEach(element => {
+                    // Ajouter un EventListener pour détecter le clic sur chaque élément
+                    element.addEventListener('click', function() {
+                        // Convertir l'ID de l'élément en chaîne de caractères
+                        var id_as_string = String(element.id);
+
+                        // Afficher l'ID de l'élément cliqué dans la console
+                        if (!isNaN(id_as_string)) { // Si l'ID est un nombre après conversion
+
+                            console.log("ID de l'élément cliqué :", id_as_string);
+
+                            // Vérifier si un cookie existe déjà pour cet élément
+                            var valeur_du_cookie = getCookie(id_as_string);
+
+                            // Si le cookie n'existe pas, on initialise à 1, sinon on incrémente la valeur
+                            if (valeur_du_cookie === null) {
+                                valeur_du_cookie = 1; // Initialiser à 1 si le cookie n'existe pas encore
+                                alert("Le plat numéro : " + id_as_string + " a été ajouté"); // Ceci informe l'utilisateur
+                            } else {
+                                valeur_du_cookie = parseInt(valeur_du_cookie) + 1; // Incrémenter la valeur si le cookie existe
+                                alert("Le plat numéro : " + id_as_string + " a été ajouté au panier"); // Signalement à l'utilisateur
+                            }
+
+                            // Enregistrer le cookie avec l'ID de l'élément comme nom et la valeur incrémentée
+                            setCookie(id_as_string, valeur_du_cookie, 1);
+
+                            // Afficher dans la console la nouvelle valeur du cookie
+                            console.log("Nouvelle valeur du cookie pour", id_as_string, ":", valeur_du_cookie);
+
+                        } else {
+                            console.log("L'ID n'est pas un nombre.");
+                        }
+                    });
+                });
+                
+    </script>
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>

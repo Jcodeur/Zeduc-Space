@@ -1,0 +1,97 @@
+/* Custom styles for the page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar */
+.navbar, .footer {
+    background-color: #2a2a2a;
+    padding: 10px 20px;
+    justify-content: space-between;
+}
+
+
+.Titre {
+    background-color: #bbb;
+    padding: 20px;
+    width: 100%;
+    justify-content: center;
+    justify-items: center;
+}
+
+.ecriture
+{
+    color: #ffae00;
+    text-transform: uppercase;
+    margin-top: 15px;
+    
+}
+
+
+
+.Facture
+{
+    margin-bottom: 500px;
+}
+
+
+.logo {
+    width: 50px;
+    height: 50px;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Pour centrer le titre de création de compte */
+hr {
+    border: 1px solid #000;
+}
+
+form .form-group {
+    margin-bottom: 20px;
+    
+}
+
+/* Bouton de soumission */
+.btn-block {
+    padding: 10px;
+    font-size: 18px;
+    
+}
+
+
+/* Footer */
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 20px;
+    width: 100%;
+    text-align: left;
+}
+
+footer ul {
+    list-style-type: none;
+}
+/* Images des réseaux sociaux */
+footer img {
+    height: 30px;
+    width: 30px;
+}
+
+/* Responsive design */
+@media (max-width: 576px) {
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    footer img {
+        height: 25px;
+        width: 25px;
+    }
+}

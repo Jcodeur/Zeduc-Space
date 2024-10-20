@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #2a2a2a;
+    padding: 10px 20px;
+    justify-content: space-between;
+}
+
+
+/* Personnalisation des bordures des champs de saisie */
+input[type="text"] {
+    
+    padding: 10px; /* Ajoute un peu de padding à l'intérieur du champ */
+    width: 100%; /* S'assure que le champ prend toute la largeur du conteneur */
+    box-shadow: none; /* Supprime l'ombre par défaut */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Animation lors du focus */
+}
+
+/* Changement de la bordure lors du focus */
+input[type="text"]:focus {
+    border-color: #007bff; /* Change la couleur de la bordure au bleu lors du focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Ajoute une ombre bleue */
+    outline: none; /* Supprime le contour par défaut */
+}
+
+.Titre {
+    background-color: #bbb;
+    padding: 20px;
+    width: 100%;
+    justify-content: center;
+    justify-items: center;
+}
+
+.ecriture
+{
+    color: #ffae00;
+    text-transform: uppercase;
+    margin-top: 15px;
+    
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Pour centrer le titre de création de compte */
+hr {
+    border: 1px solid #000;
+}
+
+form .form-group {
+    margin-bottom: 20px;
+    
+}
+
+/* Bouton de soumission */
+.btn-block {
+    padding: 10px;
+    font-size: 18px;
+}
+
+
+/* Footer */
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 20px;
+    width: 100%;
+    text-align: left;
+    justify-content: space-between;
+    margin-bottom: 0px;
+}
+
+footer ul {
+    list-style-type: none;
+}
+
+/* Images des réseaux sociaux */
+footer img {
+    height: 30px;
+    width: 30px;
+}
+
+/* Responsive design */
+@media (max-width: 576px) {
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    footer img {
+        height: 25px;
+        width: 25px;
+    }
+}
