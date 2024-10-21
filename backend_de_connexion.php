@@ -48,10 +48,10 @@ if (isset($_POST["mail"]) && isset($_POST["mot_de_passe"]) ){
 
     header("Location:page_de_l_utilisateur.php"); //redirection vers la meme page
     exit();//fermeture de la redirection
-              
+               
   }else{//cas contraire
     
-    session_start() ;//ouverture de la session
+    
     $_SESSION["formulaire_email"] = $email ; //stockage de mon email
     $_SESSION["formulaire_mot_de_passe"] =  $mot_de_passe ; //je stocke le mot de passe que j ai utilisé
 

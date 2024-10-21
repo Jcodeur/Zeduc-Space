@@ -78,25 +78,23 @@
                         <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Menu</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="formulaire_de_commande.php">Voir Le Panier</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="formulaire_de_reclamation.php">Services Clients</a>
+                        <a class="nav-link" href="formulaire_de_reclamation.php">Ecrire une réclamation</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Autres
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Événement</a></li>
-                            <li><a class="dropdown-item" href="#">Programme de fidélité</a></li>
-                            <li><a class="dropdown-item" href="#">Historique des commandes</a></li>
-                            <li><a class="dropdown-item" href="#">Réclamations</a></li>
-                            <li><a class="dropdown-item" href="#">Jeux</a></li>
+                            <li><a class="dropdown-item" href="formulaire_d_evenement.php">Événement</a></li>
+                            <li><a class="dropdown-item" href="formulaire_de_fidelite.php">Programme de fidélité</a></li>
+                            <li><a class="dropdown-item" href="formulaire_de_suivi_de_commande.php">Historique des commandes</a></li>
+                            <li><a class="dropdown-item" href="formulaire_de_jeu.php">Jeux</a></li>
                             <li><a class="dropdown-item" href="#">10 Meilleurs clients</a></li>
+                            <li><a class="dropdown-item" href="#">informations sur mon compte personnelle</a></li>
+
                         </ul>
                     </li>
                 </ul>

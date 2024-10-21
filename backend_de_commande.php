@@ -26,14 +26,13 @@
         $recherche_de_l_id = $ma_base_de_donnee->connexion->prepare("SELECT id_plat FROM plats ; ");
         $simplificateur->execute_la_recherche( $recherche_de_l_id);
         $tableau_d_identifiant = $simplificateur->stocke_le_resultat_de_la_requete( $recherche_de_l_id, "id_plat");
-    
+        $cle_unique_de_la_commande = obtenirCleUnique(); //me permet d avoir une clé unique pour la commande
+            
         foreach ($tableau_d_identifiant as $id_plat) {
           
             $chaine_de_caractere_de_id_plat = strval($id_plat) ; //ceci me permet de convertir l identifiant de mon plat qui est un entier en chaine de caractère
         
             if( isset($_SESSION['plat_' . $chaine_de_caractere_de_id_plat] )){ //je vérifie si un certains plat doit se trouver dans la session si ce retrouve dans la session alors il fait partir de la commande
-    
-                $cle_unique_de_la_commande = obtenirCleUnique(); //me permet d avoir une clé unique pour la commande
     
                 $insertion_de_la_commande = $ma_base_de_donnee->connexion->prepare("INSERT INTO commandes(id_commande,id_plat,id_utilisateur,montant_total,nombre_de_point_accumuler,date_de_commande) VALUES (?,?,?,?,?,?) ;") ;
                 $insertion_de_la_commande->bind_param("siisis",    $cle_unique_de_la_commande,

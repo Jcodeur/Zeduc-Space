@@ -1,9 +1,5 @@
 <?php
-    // Parcourir tous les cookies existants
-/*foreach ($_COOKIE as $nom_du_cookie => $valeur_du_cookie) {
-    // Supprimer chaque cookie en définissant une expiration dans le passé
-    setcookie($nom_du_cookie, '', time() - 3600, '/');
-}*/
+   
 
     require "pop_pup.php" ;
 	session_start() ;
@@ -45,6 +41,14 @@
        
     }
     
+    //ici je récupère le nom d utilisateur de la personne connecté
+
+    $recherche_du_nom_utilisateur = $ma_base_de_donnee->connexion->prepare("SELECT nom_d_utilisateur FROM utilisateurs WHERE id_utilisateur = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
+    $recherche_du_nom_utilisateur->bind_param("i",$identifiant_unique) ;
+    $simplificateur->execute_la_recherche($recherche_du_nom_utilisateur) ; //cette methode me permet d executer ma requete de  recherche
+    $tableau_nom_de_l_utilisateur =   $simplificateur->stocke_le_resultat_de_la_requete( $recherche_du_nom_utilisateur,"nom_d_utilisateur") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
+    $nom_de_l_utilisateur =  $tableau_nom_de_l_utilisateur[0] ; //recuperation du nom de l ecran
+          
     
   
 ?>
@@ -91,30 +95,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="page_de_l_utilisateur.php">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="formulaire_de_visualisation_de_reclamation.php">Services Clients</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Autres
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Événement</a></li>
-                            <li><a class="dropdown-item" href="#">Programme de fidélité</a></li>
-                            <li><a class="dropdown-item" href="#">Historique des commandes</a></li>
-                            <li><a class="dropdown-item" href="#">Réclamations</a></li>
-                            <li><a class="dropdown-item" href="#">Jeux</a></li>
-                            <li><a class="dropdown-item" href="#">10 Meilleurs clients</a></li>
-                        </ul>
-                    </li>
+
+                  
                 </ul>
                 <a class="btn btn-warning" href="#">LogOut</a>
             </div>
             <div class="ecriture">
-                essai  
+                <?php echo  "Hey , ".$nom_de_l_utilisateur ; ?>
             </div>
         </div>
     </nav>

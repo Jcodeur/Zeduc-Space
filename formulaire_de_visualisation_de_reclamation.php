@@ -65,7 +65,7 @@
                 </ul>
               
                 <div class="ecriture">
-                <?php echo $nom_de_l_utilisateur;?>          
+                <?php echo "Hey , ".$nom_de_l_utilisateur;?>          
                 </div>
             </div>
             

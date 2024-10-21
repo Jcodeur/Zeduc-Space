@@ -21,16 +21,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Promotions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Évènements</a>
+                        <a class="nav-link" href="index.php">Home</a>
                     </li>
 					<li class="nav-item">
                         <a class="nav-link" href="formulaire_d_inscription.php">Inscription</a>

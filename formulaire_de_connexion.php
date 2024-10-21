@@ -38,29 +38,12 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="index.php">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services Clients</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Autres
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Événement</a></li>
-                            <li><a class="dropdown-item" href="#">Programme de fidélité</a></li>
-                            <li><a class="dropdown-item" href="#">Historique des commandes</a></li>
-                            <li><a class="dropdown-item" href="#">Réclamations</a></li>
-                            <li><a class="dropdown-item" href="#">Jeux</a></li>
-                            <li><a class="dropdown-item" href="#">10 Meilleurs clients</a></li>
-                        </ul>
-                    </li>
+                  
+                   
                 </ul>
-                <a class="btn btn-warning" href="formulaire_de_connexion.php">Login</a>
+                <a class="btn btn-warning" href="formulaire_d_inscription.php">Inscription</a>
             </div>
         </div>
     </nav>
@@ -77,8 +60,7 @@
                     <input type="password" class="form-control form-control-lg" name="mot_de_passe" value="<?php echo isset( $_SESSION["formulaire_mot_de_passe"] ) && !empty( $_SESSION["formulaire_mot_de_passe"]) ? htmlspecialchars( $_SESSION["formulaire_mot_de_passe"] ) : ''; ?>" placeholder="Password" required>
                 </div>
                 <button type="submit" class="btn btn-custom btn-lg w-100 mb-3">Connexion</button>
-                <a href="index.php" class="text-warning">Accueil</a><br>
-                <a href="formulaire_d_inscription.php" class="text-warning">Inscription</a>
+               
             </form>
         </div>
     </div>
