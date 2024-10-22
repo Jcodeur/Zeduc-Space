@@ -13,6 +13,14 @@ body {
     min-height: 100vh;
 }
 
+
+.Titre {
+    background-color: #D9D9D9;
+    padding: 20px;
+    width: 100%;
+}
+
+/* Navbar */
 .navbar {
     background-color: #343a40;
 }
@@ -27,6 +35,7 @@ body {
     height: auto;
 }
 
+/* Dropdown menu */
 .dropdown-menu {
     background-color: #343a40;
     border: none;
@@ -42,40 +51,69 @@ body {
     color: #000000;
 }
 
-.Titre {
-    background-color: #cfbd97;
+/* Contenu principal */
+.main-content {
+    flex: 1;
     padding: 20px;
-    width: 100%;
+    text-align: center;
 }
 
-.ecriture
-{
-    color: #ffae00;
+h1, h2 {
+    margin-bottom: 20px;
     text-transform: uppercase;
-    margin-top: 15px;
-    
 }
 
-.customer-icon {
-    
-    width: 100px;
-    height: 100px;
-    margin: 0 auto;
-    display: block;
-    border-radius: 50%;
+.Info-section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 30px;
 }
 
-.Infos
-{
-    justify-content: left;
-    justify-items: left;
+.Info-Card {
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    width: 80%;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.Info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-.rank {
-    font-size: 1.5rem;
-    color: #ffae00;
-    font-weight: bold;
+.Info-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #000;
+}
+
+.Info-card p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Bouton visiter */
+.modify-btn {
+    background-color: #343a40;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 81%;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.modify-btn:hover {
+    background-color: #ffae00;
+    color: #000000;
+    transform: scale(1.05);
 }
 
 /* Footer */
@@ -86,7 +124,7 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
-    text-align: left;
+    text-align: center;
 }
 
 footer ul {

@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Création de compte - ZEDUC-SP@CE</title>
+    <title>ZEDUC SP@CE GAME</title>
+    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="Paiement.css">
+    <link rel="stylesheet" href="InfoEtudiant.css">
 </head>
-<body>
-    
 
-    <header>
-        <!-- Navbar -->
-     <nav class="navbar navbar-expand-lg navbar-dark">
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <!-- Place here your logo image -->
                 <img src="../logo.png" alt="Logo" width="50">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,15 +22,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.html">Home</a>
+                        <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../Menu/Menu.html">Menu</a>
+                        <a class="nav-link" href="#">Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../ServiceClient/ServiceClient.html">Services Clients</a>
+                        <a class="nav-link" href="#">Services Clients</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -39,81 +37,69 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Événement</a></li>
-                            <li><a class="dropdown-item" href="../Fidélité/fidelite.html">Programme de fidélité</a></li>
+                            <li><a class="dropdown-item" href="#">Programme de fidélité</a></li>
                             <li><a class="dropdown-item" href="#">Historique des commandes</a></li>
-                            <li><a class="dropdown-item" href="../ServiceClient/ServiceClient.html">Réclamations</a></li>
+                            <li><a class="dropdown-item" href="#">Réclamations</a></li>
                             <li><a class="dropdown-item" href="#">Jeux</a></li>
-                            <li><a class="dropdown-item" href="../Top10/CustomerRanking.html">10 Meilleurs clients</a></li>
+                            <li><a class="dropdown-item" href="#">10 Meilleurs clients</a></li>
                         </ul>
                     </li>
                 </ul>
-                <a class="btn btn-warning" href="../index.html">LogOut</a>
+                <a class="btn btn-warning" href="#">Log out</a>
             </div>
             <div class="ecriture">
                 essai  
             </div>
         </div>
     </nav>
-    <div class="Titre"><h2  class="text-center" >PANIER DE COMMANDES </h2></div>
-    </header>
+    <div class="Titre"> <h1 class="text-center">ZEDUC SP@CE INFOS CLIENTS</h1></div>
 
-    <main class="container my-5">
-        <section class="text-center mb-5">
-            
-            <h3> ARTICLES DU PANIER </h3>
-            <hr class="w-50 mx-auto">
-        </section>
-        
-    </main>
-    <br>
-    <br>
-    
-
+    <!-- Main Content -->
     <div class="container my-5">
-        <div class="Facture">
-            <table class="table table-bordered">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Designation</th>
-                        <th>Qte</th>
-                        <th>Prix Unitaire</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr id="ligne1">
-                        <td>Produit 1</td>
-                        <td>2</td>
-                        <td>1000 FCFA</td>
-                        <td>2000 FCFA</td>
-                    </tr>
-                    <tr id="ligne2">
-                        <td>Produit 2</td>
-                        <td>1</td>
-                        <td>1000 FCFA</td>
-                        <td>1000 FCFA</td>
-                    </tr>
-                    <tr id="ligne3">
-                        <td>Produit 3</td>
-                        <td>3</td>
-                        <td>500 FCFA</td>
-                        <td>1500 FCFA</td>
-                    </tr>
-                    <tr class="total-row">
-                        <td colspan="3" class="text-end">Total :</td>
-                        <td>4500 FCFA</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="d-flex justify-content-end">
-                <button class="btn btn-dark mt-3">Valider la Commande</button>
+        <h2 class="text-center mt-4">INFORMATIONS DE L'ETUDIANT</h2>
+        <p class="text-center">L'étudiant a accès à cette page pour vérifier ses informations </p>
+            <div class="Info-section">
+            <div class="Info-Card">
+                <h5 id="">Noms  : </h5>
+                <p> <div class="InfoNom">        </div>
+                </p>
             </div>
-        </div>
-    
-    </div>
+            <div class="Info-Card">
+                <h5 id="">Prénoms  : </h5>
+                <p> <div class="InfoPrenom">        </div>
+                </p>
+            </div>
+            <div class="Info-Card">
+                <h5 id="">Adresse E-mail : </h5>
+                <p> <div class="InfoEmail">        </div>
+                </p>
+            </div>
+            <div class="Info-Card">
+                <h5 id="">Code de parrainage : </h5>
+                <p> <div class="Infoparri">        </div>
+                </p>
+            </div>
+            <div class="Info-Card">
+                <h5 id="">ID de son parrain : </h5>
+                <p> <div class="Info">        </div>
+                </p>
+            </div>
+            <div class="Info-Card">
+                <h5 id="">Numéro de Telephone  : </h5>
+                <p> <div class="Info">        </div>
+                </p>
+            </div>
+            <br>
 
-     <!-- Footer -->
-     <footer class="bg-dark text-white py-4">
+            <button onclick="window.location.href='./Modify.html'" class="modify-btn">Modifier Info </button>
+
+     
+       </div>
+        
+    </div>
+ 
+
+    <footer class="bg-dark text-white py-4">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
@@ -139,9 +125,14 @@
         </div>
     </footer>
 
+    <!-- Bootstrap JS and Popper.js -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- FontAwesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
