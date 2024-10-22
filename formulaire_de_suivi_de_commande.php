@@ -1,13 +1,17 @@
 <?php 
-function affiche_la_commande($identifiant_de_la_commande,$date_de_la_commande, $nom_du_plat,$montant_du_plat){
+function affiche_la_commande($identifiant_de_la_commande,$date_de_la_commande, $nom_du_plat,$montant_du_plat,$nombre_de_plat, $prix_total_d_un_plat){
     
 ?>
 <div class="fidelity-card">
     <h2 id=""><?php echo "Identifiant de la commande : ".$identifiant_de_la_commande ; ?></h2>
     <h3 id=""><?php echo "Date de la commande : ".$date_de_la_commande ; ?></h3>
 
-    <p><?php echo $nom_du_plat." : ".$montant_du_plat ;?></p>
+    <p><?php echo $nom_du_plat ;?></p>
+    <p><?php echo "nombre de plat acheté  "." : ".$nombre_de_plat ;?></p>
+    <p><?php echo "prix unitaire "." : ".$montant_du_plat." Francs " ;?></p>
+    <p><?php echo "prix total  "." : ".$prix_total_d_un_plat." Francs " ;?></p>
     
+
 </div>
 <?php
     }
@@ -65,7 +69,7 @@ function affiche_la_commande($identifiant_de_la_commande,$date_de_la_commande, $
                     </li>
 
                 </ul>
-               
+                
             </div>
             <div class="ecriture">
                 <?php echo  "Hey , ".$nom_de_l_utilisateur ; ?>
@@ -88,38 +92,81 @@ function affiche_la_commande($identifiant_de_la_commande,$date_de_la_commande, $
               $recherche_id_commande->bind_param("i",$identifiant_unique) ;//remplissage de parametre
               $simplificateur->execute_la_recherche( $recherche_id_commande) ; //cette methode me permet d executer ma requete de  recherche
               $tableau_id_commande =   $simplificateur->stocke_le_resultat_de_la_requete(  $recherche_id_commande,"id_commande") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
-              
-              foreach ($tableau_id_commande as $id_commande)   {
-                
-                $recherche_date_de_commande = $ma_base_de_donnee->connexion->prepare("SELECT date_de_commande FROM commandes WHERE  id_commande = ?  ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
-                $recherche_date_de_commande->bind_param("s", $id_commande) ;//remplissage de parametre
-                $simplificateur->execute_la_recherche(  $recherche_date_de_commande) ; //cette methode me permet d executer ma requete de  recherche
-                $tableau_de_date_de_commande =   $simplificateur->stocke_le_resultat_de_la_requete(   $recherche_date_de_commande,"date_de_commande") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
-                $date_de_commande =  $tableau_de_date_de_commande[0] ; //je garde la date de ma commande        
-
-                $recherche_du_montant_total = $ma_base_de_donnee->connexion->prepare("SELECT montant_total FROM commandes WHERE  id_commande = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
-                $recherche_du_montant_total->bind_param("s", $id_commande) ;//remplissage de parametre
-                $simplificateur->execute_la_recherche($recherche_du_montant_total) ; //cette methode me permet d executer ma requete de  recherche
-                $tableau_de_montant_total =   $simplificateur->stocke_le_resultat_de_la_requete(  $recherche_du_montant_total,"montant_total") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
-                $montant_du_plat =   $tableau_de_montant_total[0] ; //je récupère le montant de chaque plat a chaque commande
-
-                $recherche_de_l_id_plat = $ma_base_de_donnee->connexion->prepare("SELECT id_plat FROM commandes WHERE  id_commande = ?  ;  ");
-                $recherche_de_l_id_plat->bind_param("s", $id_commande) ;//remplissage de parametre
-                $simplificateur->execute_la_recherche(  $recherche_de_l_id_plat);
-                $tableau_d_id_plat = $simplificateur->stocke_le_resultat_de_la_requete( $recherche_de_l_id_plat, "id_plat");
-                $id_plat =  $tableau_d_id_plat[0] ;//je récupère un identifiant spécifique de plat
-               
-                $recherche_du_plat = $ma_base_de_donnee->connexion->prepare("SELECT nom_du_plat FROM plats WHERE id_plat = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
-                $recherche_du_plat->bind_param("i",$id_plat) ;
-                $simplificateur->execute_la_recherche($recherche_du_plat) ; //cette methode me permet d executer ma requete de  recherche
-                $tableau_nom_du_plat =   $simplificateur->stocke_le_resultat_de_la_requete( $recherche_du_plat,"nom_du_plat") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
-                $nom_du_plat = $tableau_nom_du_plat[0] ; //je garde le nom spécifique de ce plat
-
-                affiche_la_commande( $id_commande, $date_de_commande, $nom_du_plat , $montant_du_plat) ; //affichage de l historique de commandes
-              
+              $nbre_total_de_commande = count($tableau_id_commande) ; //cette variable me permet d avoir le nombre de commande d un utilisateur
             
+
+              for ($i = 0 ; $i<=($nbre_total_de_commande-1) ; $i++){ //cette boucle va me permettre de traiter toutes mes commandes
+                        
+                        $id_commande =  $tableau_id_commande[$i] ;//cette ligne me permet de récupérer chaque identifiant de commande
+
+                        $recherche_nombre_lignes = $ma_base_de_donnee->connexion->prepare("
+                            SELECT COUNT(*) AS nombre_lignes 
+                            FROM commandes 
+                            WHERE id_commande = ? 
+                        ");
+
+                        // Remplissage du paramètre
+                        $recherche_nombre_lignes->bind_param("s", $id_commande);
+
+                        // Exécution de la requête
+                        $simplificateur->execute_la_recherche($recherche_nombre_lignes);
+
+                        // Récupération du résultat
+                        $resultat = $recherche_nombre_lignes->get_result();
+                        $ligne = $resultat->fetch_assoc();
+                        $nombre_lignes = $ligne['nombre_lignes'];
+               
+                  for($j=0 ;$j <= ($nombre_lignes-1) ;$j++){  
+
+                    $recherche_date_de_commande = $ma_base_de_donnee->connexion->prepare("SELECT date_de_commande FROM commandes WHERE  id_commande = ?  ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
+                    $recherche_date_de_commande->bind_param("s", $id_commande) ;//remplissage de parametre
+                    $simplificateur->execute_la_recherche(  $recherche_date_de_commande) ; //cette methode me permet d executer ma requete de  recherche
+                    $tableau_de_date_de_commande =   $simplificateur->stocke_le_resultat_de_la_requete(   $recherche_date_de_commande,"date_de_commande") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
+                    $date_de_commande =  $tableau_de_date_de_commande[0] ; //je garde la date de ma commande        
+    
+                    $recherche_du_montant_total = $ma_base_de_donnee->connexion->prepare("SELECT montant_total FROM commandes WHERE  id_commande = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
+                    $recherche_du_montant_total->bind_param("s", $id_commande) ;//remplissage de parametre
+                    $simplificateur->execute_la_recherche($recherche_du_montant_total) ; //cette methode me permet d executer ma requete de  recherche
+                    $tableau_de_montant_total =   $simplificateur->stocke_le_resultat_de_la_requete(  $recherche_du_montant_total,"montant_total") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
+                    $montant_du_plat =   $tableau_de_montant_total[$j] ; //je récupère le montant de chaque plat a chaque commande
+    
+                    $recherche_de_l_id_plat = $ma_base_de_donnee->connexion->prepare("SELECT id_plat FROM commandes WHERE  id_commande = ?  ;  ");
+                    $recherche_de_l_id_plat->bind_param("s", $id_commande) ;//remplissage de parametre
+                    $simplificateur->execute_la_recherche(  $recherche_de_l_id_plat);
+                    $tableau_d_id_plat = $simplificateur->stocke_le_resultat_de_la_requete( $recherche_de_l_id_plat, "id_plat");
+                    $id_plat =  $tableau_d_id_plat[$j] ;//je récupère un identifiant spécifique de plat
+                   
+                    $recherche_du_plat = $ma_base_de_donnee->connexion->prepare("SELECT nom_du_plat FROM plats WHERE id_plat = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
+                    $recherche_du_plat->bind_param("i",$id_plat) ;
+                    $simplificateur->execute_la_recherche($recherche_du_plat) ; //cette methode me permet d executer ma requete de  recherche
+                    $tableau_nom_du_plat =   $simplificateur->stocke_le_resultat_de_la_requete( $recherche_du_plat,"nom_du_plat") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
+                    $nom_du_plat = $tableau_nom_du_plat[0] ; //je garde le nom spécifique de ce plat
+    
+                    $recherche_du_nombre_de_plat = $ma_base_de_donnee->connexion->prepare("SELECT nombre_de_plat FROM commandes WHERE  id_commande = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
+                    $recherche_du_nombre_de_plat->bind_param("s", $id_commande) ;//remplissage de parametre
+                    $simplificateur->execute_la_recherche($recherche_du_nombre_de_plat) ; //cette methode me permet d executer ma requete de  recherche
+                    $tableau_du_nombre_de_plat =   $simplificateur->stocke_le_resultat_de_la_requete(  $recherche_du_nombre_de_plat,"nombre_de_plat") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
+                    $nombre_de_plat = $tableau_du_nombre_de_plat[$j] ; //je récupère le montant de chaque plat a chaque commande
+    
+                    $prix_total_d_un_plat = ($montant_du_plat*$nombre_de_plat) ; //ceci me permet d avoir le prix total d un plat
+                    affiche_la_commande( $id_commande, $date_de_commande, $nom_du_plat , $montant_du_plat , $nombre_de_plat ,  $prix_total_d_un_plat) ; //affichage de l historique de commandes
+
+                   // affiche_la_commande( $id_commande, $date_de_commande, $nom_du_plat , $montant_du_plat) ; //affichage de l historique de commandes
+                
+
+                  }
+
+               
               
-             }
+               
+              
+                //après l affichage de ma commande je regarde dans le futur pour voir mon identifiant va changer
+
+              
+
+
+              }//fin de cette boucle va me permettre de traiter toutes mes commandes
+             
 
 
 

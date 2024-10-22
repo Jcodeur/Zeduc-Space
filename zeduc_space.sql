@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 11 oct. 2024 à 22:01
+-- Généré le : mar. 22 oct. 2024 à 16:07
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -28,12 +28,36 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `commandes` (
-  `id_commande` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
   `montant_total` int(11) NOT NULL,
   `nombre_de_point_accumuler` int(11) NOT NULL,
-  `date_de_commande` text NOT NULL
+  `date_de_commande` text NOT NULL,
+  `id_plat` int(11) NOT NULL,
+  `id_commande` text NOT NULL,
+  `nombre_de_plat` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `commandes`
+--
+
+INSERT INTO `commandes` (`id_utilisateur`, `montant_total`, `nombre_de_point_accumuler`, `date_de_commande`, `id_plat`, `id_commande`, `nombre_de_plat`) VALUES
+(5, 1000, 1, '2024-10-21 14:42:03', 1, '67164c1d394b9', 1),
+(5, 1500, 1, '2024-10-21 14:42:58', 4, '67164c5549dfe', 1),
+(5, 1500, 6, '2024-10-21 14:42:58', 5, '67164c5549dfe', 4),
+(5, 1000, 1, '2024-10-21 14:42:58', 6, '67164c5549dfe', 1),
+(5, 1500, 3, '2024-10-21 14:42:58', 7, '67164c5549dfe', 2),
+(5, 1500, 3, '2024-10-21 14:44:22', 4, '67164ca881169', 2),
+(5, 1500, 3, '2024-10-21 14:44:22', 7, '67164ca881169', 2),
+(5, 1500, 4, '2024-10-21 14:44:22', 8, '67164ca881169', 3),
+(5, 1000, 1, '2024-10-21 15:53:05', 2, '67165cc65138f', 1),
+(5, 1000, 1, '2024-10-21 15:53:05', 3, '67165cc65138f', 1),
+(5, 1500, 1, '2024-10-21 17:23:18', 4, '671671e8b2f1a', 1),
+(5, 1500, 1, '2024-10-21 17:23:18', 5, '671671e8b2f1a', 1),
+(5, 1500, 3, '2024-10-21 17:23:18', 7, '671671e8b2f1a', 2),
+(5, 1000, 1, '2024-10-21 21:29:14', 1, '6716ab99e5655', 1),
+(5, 1000, 1, '2024-10-21 21:29:14', 2, '6716ab99e5655', 1),
+(5, 1000, 1, '2024-10-21 21:29:14', 3, '6716ab99e5655', 1);
 
 -- --------------------------------------------------------
 
@@ -70,22 +94,45 @@ CREATE TABLE `plats` (
   `nom_du_plat` text NOT NULL,
   `prix` int(11) NOT NULL,
   `photo_du_plat` text NOT NULL,
-  `description` text DEFAULT NULL
+  `description` text DEFAULT NULL,
+  `visible` text NOT NULL DEFAULT 'false'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `plats`
 --
 
-INSERT INTO `plats` (`id_plat`, `nom_du_plat`, `prix`, `photo_du_plat`, `description`) VALUES
-(1, 'ndolè', 1000, 'partie etudiante/img/gallery/01.jpg', 'un plat mythique qui fait frisonnés les papilles gustatives de tout africain qui se respecte'),
-(2, 'eru', 1000, 'partie etudiante/img/gallery/02.jpg', 'un plat qui se mange seulement avec les meilleurs pour garder tout son impact gustatif'),
-(3, 'koki', 1000, 'partie etudiante/img/gallery/03.jpg', 'tout l état camerounais le reconnait comme le meilleur plat de la région de l ouest cameroun'),
-(4, 'poulet dg', 1500, 'partie etudiante/img/gallery/04.jpg', 'se mange principalement avec du plantain mur le complément par excellence de tout camerounais'),
-(5, 'poisson braisé', 1500, 'partie etudiante/img/gallery/05.jpg', 'avant que se plat ne soit servit sur la table les adèptes le consomment d abord a travers son odeur avoutante'),
-(6, 'okok sucre/sale', 1000, 'partie etudiante/img/gallery/06.jpg', 'un plat qui a plusieurs variantes mais qui cause de nombreux débat à cause de sa version sucrée et salée'),
-(7, 'porc braisé', 1500, 'partie etudiante/img/gallery/07.jpg', 'de quoi réveiller un palais qui ne demandais que réconfort et qui l a trouvé Dieu merci au zeduc space'),
-(8, 'steak de boeuf', 1500, 'partie etudiante/img/gallery/08.jpg', 'un plat qu on ne voit qu a la télé mais qui se retrouve dans le zeduc space');
+INSERT INTO `plats` (`id_plat`, `nom_du_plat`, `prix`, `photo_du_plat`, `description`, `visible`) VALUES
+(1, 'ndolè', 1000, 'partie etudiante/img/gallery/01.jpg', 'un plat mythique qui fait frisonnés les papilles gustatives de tout africain qui se respecte', 'false'),
+(2, 'eru', 1000, 'partie etudiante/img/gallery/02.jpg', 'un plat qui se mange seulement avec les meilleurs pour garder tout son impact gustatif', 'false'),
+(3, 'koki', 1000, 'partie etudiante/img/gallery/03.jpg', 'tout l état camerounais le reconnait comme le meilleur plat de la région de l ouest cameroun', 'false'),
+(4, 'poulet dg', 1500, 'partie etudiante/img/gallery/04.jpg', 'se mange principalement avec du plantain mur le complément par excellence de tout camerounais', 'false'),
+(5, 'poisson braisé', 1500, 'partie etudiante/img/gallery/05.jpg', 'avant que se plat ne soit servit sur la table les adèptes le consomment d abord a travers son odeur avoutante', 'false'),
+(6, 'okok sucre/sale', 1000, 'partie etudiante/img/gallery/06.jpg', 'un plat qui a plusieurs variantes mais qui cause de nombreux débat à cause de sa version sucrée et salée', 'false'),
+(7, 'porc braisé', 1500, 'partie etudiante/img/gallery/07.jpg', 'de quoi réveiller un palais qui ne demandais que réconfort et qui l a trouvé Dieu merci au zeduc space', 'false'),
+(8, 'steak de boeuf', 1500, 'partie etudiante/img/gallery/08.jpg', 'un plat qu on ne voit qu a la télé mais qui se retrouve dans le zeduc space', 'false');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `reclamation`
+--
+
+CREATE TABLE `reclamation` (
+  `id_utilisateur` int(11) NOT NULL,
+  `type` text NOT NULL,
+  `titre` text NOT NULL,
+  `commentaire` text NOT NULL,
+  `etat_de_la_reclamation` text NOT NULL DEFAULT 'non_lu'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `reclamation`
+--
+
+INSERT INTO `reclamation` (`id_utilisateur`, `type`, `titre`, `commentaire`, `etat_de_la_reclamation`) VALUES
+(5, 'Client', 'dfghyuiop', 'edsgtfryuiopiuygfdstyui_oçiuygfd', 'non_lu'),
+(5, 'Null', 'bhbh', ' ghjlkjnj ', 'non_lu');
 
 -- --------------------------------------------------------
 
@@ -104,14 +151,19 @@ CREATE TABLE `utilisateurs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Index pour les tables déchargées
+-- Déchargement des données de la table `utilisateurs`
 --
 
+INSERT INTO `utilisateurs` (`id_utilisateur`, `nom_d_utilisateur`, `email`, `numero_de_telephone`, `id_parrain`, `statut`, `mot_de_passe`) VALUES
+(1, 'jcodeur', 'jcodeur@gmail.com', 659156460, 1, 'deconnecte', 'egjopenfghvvkjgbd8-è_à)jure3DCGT7ncfnpoifjnc'),
+(2, 'felix', 'felix@gmail.com', 677383231, 1, 'deconnecte', 'azerezZEDFmtfgfbdndnnshfnhdcnkfnfnxh+09'),
+(3, 'codeur', 'codeur@gmail.com', 698765421, 2, 'deconnecte', 'fgh$$¨MANC09ghutghjihyvtgfdftd(-è_ygh'),
+(4, 'aimaster', 'aimaster@gmail.com', 663636363, 3, 'deconnecte', 'yguh:shgfghjh-è_xucjwfrBqqdgxf.s'),
+(5, 'naruto', 'naruto@gmail.com', 681234567, 12, 'deconnecte', 'fgh$$¨MANC09ghutghjihyvtgfdftd(-è_ygh');
+
 --
--- Index pour la table `commandes`
+-- Index pour les tables déchargées
 --
-ALTER TABLE `commandes`
-  ADD PRIMARY KEY (`id_commande`);
 
 --
 -- Index pour la table `plats`
@@ -130,12 +182,6 @@ ALTER TABLE `utilisateurs`
 --
 
 --
--- AUTO_INCREMENT pour la table `commandes`
---
-ALTER TABLE `commandes`
-  MODIFY `id_commande` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT pour la table `plats`
 --
 ALTER TABLE `plats`
@@ -145,7 +191,7 @@ ALTER TABLE `plats`
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -92,8 +92,8 @@
                             <li><a class="dropdown-item" href="formulaire_de_fidelite.php">Programme de fidélité</a></li>
                             <li><a class="dropdown-item" href="formulaire_de_suivi_de_commande.php">Historique des commandes</a></li>
                             <li><a class="dropdown-item" href="formulaire_de_jeu.php">Jeux</a></li>
-                            <li><a class="dropdown-item" href="#">10 Meilleurs clients</a></li>
-                            <li><a class="dropdown-item" href="#">informations sur mon compte personnelle</a></li>
+                            <li><a class="dropdown-item" href="formulaire_des_meilleurs_clients.php">10 Meilleurs clients</a></li>
+                            <li><a class="dropdown-item" href="formulaire_d_information_personnelle.php">informations sur mon compte personnelle</a></li>
 
                         </ul>
                     </li>

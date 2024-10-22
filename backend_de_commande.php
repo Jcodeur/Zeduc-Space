@@ -34,13 +34,14 @@
         
             if( isset($_SESSION['plat_' . $chaine_de_caractere_de_id_plat] )){ //je vérifie si un certains plat doit se trouver dans la session si ce retrouve dans la session alors il fait partir de la commande
     
-                $insertion_de_la_commande = $ma_base_de_donnee->connexion->prepare("INSERT INTO commandes(id_commande,id_plat,id_utilisateur,montant_total,nombre_de_point_accumuler,date_de_commande) VALUES (?,?,?,?,?,?) ;") ;
-                $insertion_de_la_commande->bind_param("siisis",    $cle_unique_de_la_commande,
+                $insertion_de_la_commande = $ma_base_de_donnee->connexion->prepare("INSERT INTO commandes(id_commande,id_plat,id_utilisateur,montant_total,nombre_de_point_accumuler,date_de_commande,nombre_de_plat) VALUES (?,?,?,?,?,?,?) ;") ;
+                $insertion_de_la_commande->bind_param("siisisi",    $cle_unique_de_la_commande,
                 $_SESSION['plat_' . $chaine_de_caractere_de_id_plat]["id_du_plat"],
                 $identifiant_unique,
                 $_SESSION['plat_' . $chaine_de_caractere_de_id_plat]["prix_du_plat"],
                 $_SESSION['plat_' . $chaine_de_caractere_de_id_plat]["nbre_de_point"],
-                $_SESSION['plat_' . $chaine_de_caractere_de_id_plat]["date_du_jour"]
+                $_SESSION['plat_' . $chaine_de_caractere_de_id_plat]["date_du_jour"],
+                $_SESSION['plat_' . $chaine_de_caractere_de_id_plat]["quantite_de_plat"]
                 ) ;  //remplissage de parametre
                 $simplificateur->execute_la_recherche( $insertion_de_la_commande) ; //cette methode me permet d executer ma requete de  recherche
                 
@@ -49,7 +50,7 @@
                 //je peux supprimer une partie de la commande
 
                 setcookie($chaine_de_caractere_de_id_plat, "", time() - 3600, "/"); //une fois enregistrer je supprime ton cookie vu que j en n aurais plus besoin
-
+                unset( $_SESSION['plat_' . $chaine_de_caractere_de_id_plat]); //je supprime la session que je viens de finir d utiliser
               
               
             }//fin de si je vérifie si un certains plat doit se trouver dans la session si ce retrouve dans la session alors il fait partir de la commande
