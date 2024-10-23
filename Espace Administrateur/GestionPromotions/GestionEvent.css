@@ -17,6 +17,11 @@ body {
     justify-items: center;
 }
 
+.event
+{
+    margin-bottom: 100px;
+}
+
 .card-header
 {
     background-color: #cfbd97;
