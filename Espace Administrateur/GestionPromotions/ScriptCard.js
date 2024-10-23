@@ -1,84 +1,94 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Charger les événements depuis localStorage lors du chargement de la page
-    loadEvents();
+// Fonction pour ajouter un événement
+function ajouterEvent() {
+    const nomEvent = document.getElementById('nomEvent').value;
+    const descriptionEvent = document.getElementById('descriptionEvent').value;
+    const categorieEvent = document.getElementById('categorieEvent').value;
+    const imageEvent = document.getElementById('imageEvent').files[0];
 
-    // Ajouter un événement au formulaire
-    document.getElementById('eventForm').addEventListener('submit', function(e) {
-        e.preventDefault();
+    if (!nomEvent || !descriptionEvent || !categorieEvent || !imageEvent) {
+        alert('Veuillez remplir tous les champs.');
+        return;
+    }
 
-        // Récupérer les valeurs du formulaire
-        const nomEvent = document.getElementById('nomEvent').value;
-        const commentaire = document.getElementById('commentaire').value;
-        const imageFile = document.getElementById('image').files[0];
+    const reader = new FileReader();
+    reader.onload = function(event) {
+        const imageDataUrl = event.target.result;
 
-        if (!imageFile) {
-            alert("Veuillez sélectionner une image.");
-            return;
-        }
-
-        // Lire l'image sélectionnée
-        const reader = new FileReader();
-        reader.readAsDataURL(imageFile);
-
-        reader.onload = function(e) {
-            const imageURL = e.target.result;
-
-            // Ajouter l'événement au localStorage
-            const newEvent = {
-                nomEvent,
-                commentaire,
-                imageURL
-            };
-            saveEvent(newEvent);
-
-            // Créer une nouvelle carte pour l'événement
-            createEventCard(newEvent);
-
-            // Réinitialiser le formulaire
-            document.getElementById('eventForm').reset();
+        // Créer un nouvel objet événement
+        const nouvelEvent = {
+            id: Date.now(),
+            title: nomEvent,
+            description: descriptionEvent,
+            category: categorieEvent,
+            image: imageDataUrl
         };
-    });
-});
 
-// Fonction pour créer une carte événement
-function createEventCard(event) {
-    const eventContainer = document.getElementById('eventContainer');
-    
-    const newCard = document.createElement('div');
-    newCard.classList.add('col-md-4', 'mt-4');
-    newCard.innerHTML = `
-        <div class="card">
-            <img src="${event.imageURL}" class="card-img-top" alt="${event.nomEvent}">
-            <div class="card-body">
-                <h5 class="card-title">${event.nomEvent}</h5>
-                <p class="card-text">${event.commentaire}</p>
-                <a href="#" class="btn btn-warning">Voir Plus</a>
+        // Récupérer les événements existants depuis le localStorage
+        const evenements = JSON.parse(localStorage.getItem('evenements')) || [];
+        evenements.push(nouvelEvent);
+
+        // Sauvegarder à nouveau les événements dans le localStorage
+        localStorage.setItem('evenements', JSON.stringify(evenements));
+
+        // Réinitialiser le formulaire
+        document.getElementById('eventForm').reset();
+
+        // Rafraîchir l'affichage des événements
+        afficherEvenements();
+    };
+
+    reader.readAsDataURL(imageEvent);
+}
+
+// Fonction pour afficher les événements stockés
+function afficherEvenements() {
+    const evenements = JSON.parse(localStorage.getItem('evenements')) || [];
+    const container = document.getElementById('eventsContainer');
+    container.innerHTML = '';  // Vider le conteneur avant de le remplir
+
+    evenements.forEach(event => {
+        const card = `
+           <div class="col-md-4"> 
+                <div class="card mb-4">
+                    <img src="${event.image}" class="card-img-top" alt="Image de ${event.title}">
+                    <div class="card-body">
+                        <p class="card-text">${event.description}</p>
+                        <p class="Name">${event.title}</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    `;
-    
-    // Ajouter la carte à l'élément eventContainer
-    eventContainer.appendChild(newCard);
-}
-
-// Fonction pour sauvegarder un événement dans le localStorage
-function saveEvent(event) {
-    // Récupérer les événements stockés dans le localStorage
-    let events = JSON.parse(localStorage.getItem('events')) || [];
-    
-    // Ajouter le nouvel événement à la liste
-    events.push(event);
-    
-    // Sauvegarder la liste d'événements dans le localStorage
-    localStorage.setItem('events', JSON.stringify(events));
-}
-
-// Fonction pour charger les événements depuis le localStorage
-function loadEvents() {
-    const events = JSON.parse(localStorage.getItem('events')) || [];
-    
-    // Créer une carte pour chaque événement enregistré
-    events.forEach(event => {
-        createEventCard(event);
+        `;
+        container.innerHTML += card;
     });
 }
+
+// Fonction pour supprimer un événement
+function supprimerEvent() {
+    const nomPlat = document.getElementById('nomPlat').value;
+
+    if (!nomPlat) {
+        alert('Veuillez entrer un nom pour supprimer un événement.');
+        return;
+    }
+
+    // Récupérer les événements depuis le localStorage
+    let evenements = JSON.parse(localStorage.getItem('evenements')) || [];
+
+    // Filtrer la liste pour enlever l'événement qui correspond au nom donné
+    const nouvelleListeEvenements = evenements.filter(event => event.title !== nomPlat);
+
+    if (evenements.length === nouvelleListeEvenements.length) {
+        alert('Événement non trouvé.');
+    } else {
+        // Sauvegarder la nouvelle liste dans le localStorage
+        localStorage.setItem('evenements', JSON.stringify(nouvelleListeEvenements));
+        alert('Événement supprimé avec succès.');
+        
+        // Réinitialiser le formulaire et rafraîchir l'affichage
+        document.getElementById('deleteForm').reset();
+        afficherEvenements();
+    }
+}
+
+// Charger les événements au démarrage de la page
+window.onload = afficherEvenements;

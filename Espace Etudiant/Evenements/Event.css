@@ -16,6 +16,13 @@ body {
     background-color: #343a40;
 }
 
+.AllEvent
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .nav-link {
     color: #ffffff !important;
     text-transform: uppercase;

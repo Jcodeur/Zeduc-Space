@@ -56,60 +56,69 @@
     <div class="container mt-5">
         
 
-        <div class="row mt-4">
-            <!-- Ajout d'un Event -->
+        <div class="row">
+            <!-- Formulaire d'ajout d'événement -->
             <div class="col-md-6">
                 <div class="card mb-4">
-                    <div class="card-header text-center ">
+                    <div class="card-header text-center">
                         <h5>Ajout d'un Event</h5>
                     </div>
                     <div class="card-body">
                         <form id="eventForm">
                             <div class="form-group">
                                 <label for="nomEvent">Nom Event</label>
-                                <input type="text" class="form-control" id="nomEvent" placeholder="Entrer le nom de l'événement">
+                                <input type="text" class="form-control" id="nomEvent" placeholder="Nom de l'événement">
                             </div>
                             <div class="form-group">
-                                <label for="commentaire">Commentaire</label>
-                                <textarea class="form-control" id="commentaire" rows="3" placeholder="Ajouter un commentaire"></textarea>
+                                <label for="descriptionEvent">Commentaire</label>
+                                <textarea class="form-control" id="descriptionEvent" placeholder="Description de l'événement"></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="image">Image</label>
-                                <input type="file" class="form-control-file" id="image"  required>
+                                <label for="categorieEvent">Catégorie</label>
+                                <select class="form-control" id="categorieEvent">
+                                    <option>Hebdomadaire</option>
+                                    <option>Mensuel</option>
+                                    <option>Noël</option>
+                                    <option>Spécial</option>
+                                    <option>Autres</option>
+                                </select>
                             </div>
-                            <button type="submit" class="btn btn-primary">Valider</button>
+                            <div class="form-group">
+                                <label for="imageEvent">Image</label>
+                                <input type="file" class="form-control" id="imageEvent">
+                            </div>
+                            <button type="button" class="btn btn-primary" onclick="ajouterEvent()">Valider</button>
                         </form>
                     </div>
                 </div>
             </div>
-
-            <!-- Suppression d'un plat -->
+    
+            <!-- Formulaire de suppression d'événement -->
             <div class="col-md-6">
                 <div class="card mb-4">
-                    <div class="card-header text-center ">
+                    <div class="card-header text-center">
                         <h5>Supprimer un Menu de la Carte</h5>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form id="deleteForm">
                             <div class="form-group">
-                                <label for="nomPlat">Nom du plat à supprimer</label>
-                                <input type="text" class="form-control" id="nomPlat" placeholder="Entrer le nom du plat">
+                                <label for="nomPlat">Nom de l'événement à supprimer</label>
+                                <input type="text" class="form-control" id="nomPlat" placeholder="Entrer le nom de l'événement">
                             </div>
-                            <button type="submit" class="btn btn-primary">Valider</button>
+                            <button type="button" class="btn btn-primary" onclick="supprimerEvent()">Valider</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-
         <!-- Liste des événements -->
         <div class=" event ">
-            <!-- Section Dynamique pour afficher les événements -->
-            <div class="row mt-4" id="eventContainer">
-                <!-- Les cartes seront ajoutées ici -->
-
+            <!-- Conteneur pour les événements affichés -->
+            <div class="row mt-4" id="eventsContainer" >
+                <!-- Les événements s'afficheront ici -->
             </div>
         </div>
+        
 
     </div>
 
