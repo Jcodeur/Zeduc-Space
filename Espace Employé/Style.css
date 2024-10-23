@@ -7,35 +7,28 @@
 
 /* Navbar */
 .navbar, .footer {
-    background-color: #000000;
+    background-color: #000;
     padding: 10px 20px;
     justify-content: space-between;
 }
 
-
 .Titre {
-    background-color: #bbb;
+    background-color: #cfbd97;
     padding: 20px;
     width: 100%;
     justify-content: center;
     justify-items: center;
 }
 
-.ecriture
-{
-    color: #ffae00;
-    text-transform: uppercase;
-    margin-top: 15px;
-    
+
+/* Formulaire */
+.form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 20px;
+    flex-grow: 1;
 }
-
-
-
-.Dailystat
-{
-    margin-bottom: 50px;
-}
-
 
 .logo {
     width: 50px;
@@ -57,23 +50,12 @@ hr {
 .btn-block {
     padding: 10px;
     font-size: 18px;
-    
-}
-
-
-
-
-.Corps
-{
-    display: flex;
-    flex-direction: column;
-    column-gap: 100px;
 }
 
 
 /* Footer */
 footer {
-    background-color: rgb(0, 0, 0);
+    background-color: #343a40;
     color: #ffffff;
     padding: 20px 0;
     width: 100%;

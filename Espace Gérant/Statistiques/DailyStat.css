@@ -7,7 +7,7 @@
 
 /* Navbar */
 .navbar, .footer {
-    background-color: #000000;
+    background-color: #2a2a2a;
     padding: 10px 20px;
     justify-content: space-between;
 }
@@ -63,17 +63,13 @@ hr {
 
 
 
-.Corps
-{
-    display: flex;
-    flex-direction: column;
-    column-gap: 100px;
-}
+
+
 
 
 /* Footer */
 footer {
-    background-color: rgb(0, 0, 0);
+    background-color: #343a40;
     color: #ffffff;
     padding: 20px 0;
     width: 100%;
