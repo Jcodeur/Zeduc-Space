@@ -61,11 +61,14 @@ body {
     justify-items: center;
     justify-content: left;
     justify-content: space-between;
+    column-gap: 30px;
+    
 }
 
-.col-md-12
+.col-mb-12
 {
     margin-bottom: 30px;
+    
 
 }
 
