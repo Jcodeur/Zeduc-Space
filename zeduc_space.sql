@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 22 oct. 2024 à 16:07
+-- Généré le : mer. 23 oct. 2024 à 23:18
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -37,27 +37,25 @@ CREATE TABLE `commandes` (
   `nombre_de_plat` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Déchargement des données de la table `commandes`
+-- Structure de la table `employes`
 --
 
-INSERT INTO `commandes` (`id_utilisateur`, `montant_total`, `nombre_de_point_accumuler`, `date_de_commande`, `id_plat`, `id_commande`, `nombre_de_plat`) VALUES
-(5, 1000, 1, '2024-10-21 14:42:03', 1, '67164c1d394b9', 1),
-(5, 1500, 1, '2024-10-21 14:42:58', 4, '67164c5549dfe', 1),
-(5, 1500, 6, '2024-10-21 14:42:58', 5, '67164c5549dfe', 4),
-(5, 1000, 1, '2024-10-21 14:42:58', 6, '67164c5549dfe', 1),
-(5, 1500, 3, '2024-10-21 14:42:58', 7, '67164c5549dfe', 2),
-(5, 1500, 3, '2024-10-21 14:44:22', 4, '67164ca881169', 2),
-(5, 1500, 3, '2024-10-21 14:44:22', 7, '67164ca881169', 2),
-(5, 1500, 4, '2024-10-21 14:44:22', 8, '67164ca881169', 3),
-(5, 1000, 1, '2024-10-21 15:53:05', 2, '67165cc65138f', 1),
-(5, 1000, 1, '2024-10-21 15:53:05', 3, '67165cc65138f', 1),
-(5, 1500, 1, '2024-10-21 17:23:18', 4, '671671e8b2f1a', 1),
-(5, 1500, 1, '2024-10-21 17:23:18', 5, '671671e8b2f1a', 1),
-(5, 1500, 3, '2024-10-21 17:23:18', 7, '671671e8b2f1a', 2),
-(5, 1000, 1, '2024-10-21 21:29:14', 1, '6716ab99e5655', 1),
-(5, 1000, 1, '2024-10-21 21:29:14', 2, '6716ab99e5655', 1),
-(5, 1000, 1, '2024-10-21 21:29:14', 3, '6716ab99e5655', 1);
+CREATE TABLE `employes` (
+  `id_employe` int(11) NOT NULL,
+  `email` text NOT NULL,
+  `mot_de_passe` text NOT NULL,
+  `nom_employe` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `employes`
+--
+
+INSERT INTO `employes` (`id_employe`, `email`, `mot_de_passe`, `nom_employe`) VALUES
+(1, 'maxime@gmail.com', 'fgh$$¨MANC09ghutghjihyvtgfdftd(-è_ygh', 'maxime');
 
 -- --------------------------------------------------------
 
@@ -103,13 +101,13 @@ CREATE TABLE `plats` (
 --
 
 INSERT INTO `plats` (`id_plat`, `nom_du_plat`, `prix`, `photo_du_plat`, `description`, `visible`) VALUES
-(1, 'ndolè', 1000, 'partie etudiante/img/gallery/01.jpg', 'un plat mythique qui fait frisonnés les papilles gustatives de tout africain qui se respecte', 'false'),
+(1, 'ndolè', 1000, 'partie etudiante/img/gallery/01.jpg', 'un plat mythique qui fait frisonnés les papilles gustatives de tout africain qui se respecte', 'true'),
 (2, 'eru', 1000, 'partie etudiante/img/gallery/02.jpg', 'un plat qui se mange seulement avec les meilleurs pour garder tout son impact gustatif', 'false'),
-(3, 'koki', 1000, 'partie etudiante/img/gallery/03.jpg', 'tout l état camerounais le reconnait comme le meilleur plat de la région de l ouest cameroun', 'false'),
-(4, 'poulet dg', 1500, 'partie etudiante/img/gallery/04.jpg', 'se mange principalement avec du plantain mur le complément par excellence de tout camerounais', 'false'),
+(3, 'koki', 1000, 'partie etudiante/img/gallery/03.jpg', 'tout l état camerounais le reconnait comme le meilleur plat de la région de l ouest cameroun', 'true'),
+(4, 'poulet dg', 1500, 'partie etudiante/img/gallery/04.jpg', 'se mange principalement avec du plantain mur le complément par excellence de tout camerounais', 'true'),
 (5, 'poisson braisé', 1500, 'partie etudiante/img/gallery/05.jpg', 'avant que se plat ne soit servit sur la table les adèptes le consomment d abord a travers son odeur avoutante', 'false'),
 (6, 'okok sucre/sale', 1000, 'partie etudiante/img/gallery/06.jpg', 'un plat qui a plusieurs variantes mais qui cause de nombreux débat à cause de sa version sucrée et salée', 'false'),
-(7, 'porc braisé', 1500, 'partie etudiante/img/gallery/07.jpg', 'de quoi réveiller un palais qui ne demandais que réconfort et qui l a trouvé Dieu merci au zeduc space', 'false'),
+(7, 'porc braisé', 1500, 'partie etudiante/img/gallery/07.jpg', 'de quoi réveiller un palais qui ne demandais que réconfort et qui l a trouvé Dieu merci au zeduc space', 'true'),
 (8, 'steak de boeuf', 1500, 'partie etudiante/img/gallery/08.jpg', 'un plat qu on ne voit qu a la télé mais qui se retrouve dans le zeduc space', 'false');
 
 -- --------------------------------------------------------
@@ -125,14 +123,6 @@ CREATE TABLE `reclamation` (
   `commentaire` text NOT NULL,
   `etat_de_la_reclamation` text NOT NULL DEFAULT 'non_lu'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `reclamation`
---
-
-INSERT INTO `reclamation` (`id_utilisateur`, `type`, `titre`, `commentaire`, `etat_de_la_reclamation`) VALUES
-(5, 'Client', 'dfghyuiop', 'edsgtfryuiopiuygfdstyui_oçiuygfd', 'non_lu'),
-(5, 'Null', 'bhbh', ' ghjlkjnj ', 'non_lu');
 
 -- --------------------------------------------------------
 
@@ -166,6 +156,12 @@ INSERT INTO `utilisateurs` (`id_utilisateur`, `nom_d_utilisateur`, `email`, `num
 --
 
 --
+-- Index pour la table `employes`
+--
+ALTER TABLE `employes`
+  ADD PRIMARY KEY (`id_employe`);
+
+--
 -- Index pour la table `plats`
 --
 ALTER TABLE `plats`
@@ -180,6 +176,12 @@ ALTER TABLE `utilisateurs`
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
+
+--
+-- AUTO_INCREMENT pour la table `employes`
+--
+ALTER TABLE `employes`
+  MODIFY `id_employe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `plats`

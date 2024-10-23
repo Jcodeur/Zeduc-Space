@@ -118,39 +118,62 @@
 
 	
 		<?php 
-						
-			$recherche_de_l_id = $ma_base_de_donnee->connexion->prepare("SELECT id_plat FROM plats  ");
+			
+            $condition_de_visibilite_plat  = "true" ; //cette variable représente la condition que doit remplir un plat pour etre visible
+
+			$recherche_de_l_id = $ma_base_de_donnee->connexion->prepare("SELECT id_plat FROM plats WHERE visible = ? ;  ");
+            $recherche_de_l_id ->bind_param("s", $condition_de_visibilite_plat ) ;
 			$simplificateur->execute_la_recherche( $recherche_de_l_id);
 			$tableau_d_identifiant = $simplificateur->stocke_le_resultat_de_la_requete( $recherche_de_l_id, "id_plat");
 
 			foreach ($tableau_d_identifiant as $id_plat) {
 
-			$recherche_du_plat = $ma_base_de_donnee->connexion->prepare("SELECT * FROM plats WHERE id_plat = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
-			$recherche_du_plat->bind_param("i",$id_plat) ;
+          
+			$recherche_du_plat = $ma_base_de_donnee->connexion->prepare("SELECT * FROM plats WHERE id_plat = ? AND visible = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
+			$recherche_du_plat->bind_param("is",$id_plat,$condition_de_visibilite_plat) ;
 			$simplificateur->execute_la_recherche($recherche_du_plat) ; //cette methode me permet d executer ma requete de  recherche
 			$tableau_nom_du_plat =   $simplificateur->stocke_le_resultat_de_la_requete( $recherche_du_plat,"nom_du_plat") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
-			$nom_du_plat =  $tableau_nom_du_plat[0] ; //recuperation du nom de l ecran
+            if( !is_null($tableau_nom_du_plat[0] )  ){
+                $nom_du_plat =  $tableau_nom_du_plat[0] ; //recuperation du nom de l ecran
+            }
 			
-			$recherche_du_plat = $ma_base_de_donnee->connexion->prepare("SELECT * FROM plats WHERE id_plat = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
-			$recherche_du_plat->bind_param("i",$id_plat) ;
+			
+			$recherche_du_plat = $ma_base_de_donnee->connexion->prepare("SELECT * FROM plats WHERE id_plat = ?  AND visible = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
+			$recherche_du_plat->bind_param("is",$id_plat,$condition_de_visibilite_plat) ;
 			$simplificateur->execute_la_recherche($recherche_du_plat) ; //cette methode me permet d executer ma requete de  recherche
 			$tableau_photo_du_plat =   $simplificateur->stocke_le_resultat_de_la_requete( $recherche_du_plat,"photo_du_plat") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
-			$nom_de_la_photo_du_plat =  $tableau_photo_du_plat[0] ; //recuperation du nom de l ecran
 			
+			
+            if( !is_null( $tableau_photo_du_plat[0] )  ){
+                $nom_de_la_photo_du_plat =  $tableau_photo_du_plat[0] ; //recuperation du nom de l ecran
+            }
 				
-			$recherche_du_plat = $ma_base_de_donnee->connexion->prepare("SELECT * FROM plats WHERE id_plat = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
-			$recherche_du_plat->bind_param("i",$id_plat) ;
+			$recherche_du_plat = $ma_base_de_donnee->connexion->prepare("SELECT * FROM plats WHERE id_plat = ?  AND visible = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
+			$recherche_du_plat->bind_param("is",$id_plat,$condition_de_visibilite_plat) ;
 			$simplificateur->execute_la_recherche($recherche_du_plat) ; //cette methode me permet d executer ma requete de  recherche
 			$tableau_prix_du_plat =   $simplificateur->stocke_le_resultat_de_la_requete( $recherche_du_plat,"prix") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
 			$prix_du_plat =  $tableau_prix_du_plat[0] ; //recuperation du nom de l ecran
+
+            if(!is_null( $tableau_prix_du_plat[0] )  ){
+                $prix_du_plat =  $tableau_prix_du_plat[0] ; //recuperation du nom de l ecran
+            }
+            
 			
-			$recherche_du_plat = $ma_base_de_donnee->connexion->prepare("SELECT * FROM plats WHERE id_plat = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
-			$recherche_du_plat->bind_param("i",$id_plat) ;
+			$recherche_du_plat = $ma_base_de_donnee->connexion->prepare("SELECT * FROM plats WHERE id_plat = ?  AND visible = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
+			$recherche_du_plat->bind_param("is",$id_plat,$condition_de_visibilite_plat) ;
 			$simplificateur->execute_la_recherche($recherche_du_plat) ; //cette methode me permet d executer ma requete de  recherche
 			$tableau_de_description_du_plat =   $simplificateur->stocke_le_resultat_de_la_requete( $recherche_du_plat,"description") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
 			$description =  $tableau_de_description_du_plat[0] ; //recuperation du nom de l ecran
 			
-			affiche_le_plat($nom_du_plat,$nom_de_la_photo_du_plat,$prix_du_plat,$description,$id_plat) ;
+            
+            if( !is_null(  $tableau_de_description_du_plat[0] ) ){
+                $description =  $tableau_de_description_du_plat[0] ; //recuperation du nom de l ecran
+            }
+
+            if(!is_null($tableau_nom_du_plat[0]) && !is_null($tableau_photo_du_plat[0]) && !is_null($tableau_prix_du_plat[0]) && !is_null($tableau_de_description_du_plat[0])){
+                affiche_le_plat($nom_du_plat,$nom_de_la_photo_du_plat,$prix_du_plat,$description,$id_plat) ;  
+            }
+
 			
 			}
 						

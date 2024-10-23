@@ -42,24 +42,28 @@
 ?>
 
 <?php 
-function affichage_meilleur_client($nom_de_mon_client,$nombre_de_plat_du_client){
+function affichage_meilleur_client($nom_de_mon_client,$nombre_de_plat_du_client,$position_du_client){
 ?>
-<div class="fidelity-card">
-    <h3 id=""><?php echo $nom_de_mon_client ; ?></h3>
-    <p id=""><?php echo $nombre_de_plat_du_client." Plat à son actif " ; ?></p>
-
+<div class="col-4 text-center">
+   <div class="usericon"><img src="./user-icon.png" alt="1er" class="customer-icon"></div>
+        <div class="Infos" > 
+            <div class="Nomclientclasse"><?php echo $nom_de_mon_client ;?></div>
+            <div class="nbre_plat"><?php echo $nombre_de_plat_du_client." Plats a son actif " ;?></div>
+        </div>
+    <p class="rank"><?php echo $position_du_client." e" ;?></p>
 </div>
 <?php 
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nos meilleurs clients</title>
+    <title>ZEDUC SP@CE - Top 10 Customers</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="Claim.css">
+    <link rel="stylesheet" href="CustomerRanking.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -76,77 +80,76 @@ function affichage_meilleur_client($nom_de_mon_client,$nombre_de_plat_du_client)
                     <li class="nav-item">
                         <a class="nav-link" href="page_de_l_utilisateur.php">Home</a>
                     </li>
-                  
                     <li class="nav-item">
                         <a class="btn btn-warning" href="#">Log out</a>
                     </li>
-
+                    
                 </ul>
-               
+                
             </div>
             <div class="ecriture">
-                <?php echo "Hey ,  ".$nom_de_l_utilisateur ; ?>
+               <?php echo "Hey ,  ".$nom_de_l_utilisateur ; ?>
             </div>
         </div>
-       
     </nav>
-    <div class="Titre"><h1 class="text-center ">NOS MEILLEURS CLIENTS</h1></div>
+    <div class="Titre"><h1 class="text-center">ZEDUC SP@CE TOP 10 CUSTOMER</h1></div>
     <!-- Main Content -->
     <div class="container my-5">
-        <h2 class="text-center mt-4">PRESENTATION DE NOS CLIENTS</h2>
-        <p class="text-center">Ici vous trouverez la liste de nos 10 meilleurs clients :</p>
         
-        <div class="fidelity-section">
-
+        
+        <div class="row text-center mt-4">
+          
+          
          <?php
              
-            $recherche_de_tous_les_utilisateurs = $ma_base_de_donnee->connexion->prepare("SELECT id_utilisateur FROM utilisateurs ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
-            $simplificateur->execute_la_recherche( $recherche_de_tous_les_utilisateurs) ; //cette methode me permet d executer ma requete de  recherche
-            $tableau_de_tous_les_utilisateurs =   $simplificateur->stocke_le_resultat_de_la_requete(  $recherche_de_tous_les_utilisateurs,"id_utilisateur") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
-            $tableau_de_personne_avec_le_total_de_plat_consomme = [] ; //ce tableau me permettra de contenir le nom des personnes avec le nbre de plat qu ils ont déjà acheté
-
-            foreach ($tableau_de_tous_les_utilisateurs as $id_specifique_d_un_utilisateur) {
-                
-                
-                $recherche_du_nom_utilisateur = $ma_base_de_donnee->connexion->prepare("SELECT nom_d_utilisateur FROM utilisateurs WHERE id_utilisateur = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
-                $recherche_du_nom_utilisateur->bind_param("i", $id_specifique_d_un_utilisateur) ;
-                $simplificateur->execute_la_recherche($recherche_du_nom_utilisateur) ; //cette methode me permet d executer ma requete de  recherche
-                $tableau_nom_de_l_utilisateur =   $simplificateur->stocke_le_resultat_de_la_requete( $recherche_du_nom_utilisateur,"nom_d_utilisateur") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
-                $nom_de_l_utilisateur =  $tableau_nom_de_l_utilisateur[0] ; //recuperation du nom de l ecran
-                      
-                $recherche_du_nombre_de_commande = $ma_base_de_donnee->connexion->prepare("SELECT nombre_de_plat FROM commandes WHERE id_utilisateur = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
-                $recherche_du_nombre_de_commande->bind_param("i",$id_specifique_d_un_utilisateur) ;
-                $simplificateur->execute_la_recherche( $recherche_du_nombre_de_commande) ; //cette methode me permet d executer ma requete de  recherche
-                $tableau_du_nombre_de_commande = $simplificateur->stocke_le_resultat_de_la_requete( $recherche_du_nombre_de_commande,"nombre_de_plat") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
-                $nombre_total_de_plat_consomme = sommeTableau( $tableau_du_nombre_de_commande ) ; //cette variable va me permettre de compter le nombre de plat consommer par une personne
-                
-                   
-                $tableau_de_personne_avec_le_total_de_plat_consomme[$id_specifique_d_un_utilisateur] = [
-                  
-                    "nom_de_l_utilisateur" =>  $nom_de_l_utilisateur,
-                    "nombre_total_de_plat_consomme" =>   $nombre_total_de_plat_consomme
+             $recherche_de_tous_les_utilisateurs = $ma_base_de_donnee->connexion->prepare("SELECT id_utilisateur FROM utilisateurs ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
+             $simplificateur->execute_la_recherche( $recherche_de_tous_les_utilisateurs) ; //cette methode me permet d executer ma requete de  recherche
+             $tableau_de_tous_les_utilisateurs =   $simplificateur->stocke_le_resultat_de_la_requete(  $recherche_de_tous_les_utilisateurs,"id_utilisateur") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
+             $tableau_de_personne_avec_le_total_de_plat_consomme = [] ; //ce tableau me permettra de contenir le nom des personnes avec le nbre de plat qu ils ont déjà acheté
+ 
+             foreach ($tableau_de_tous_les_utilisateurs as $id_specifique_d_un_utilisateur) {
+                 
+                 
+                 $recherche_du_nom_utilisateur = $ma_base_de_donnee->connexion->prepare("SELECT nom_d_utilisateur FROM utilisateurs WHERE id_utilisateur = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
+                 $recherche_du_nom_utilisateur->bind_param("i", $id_specifique_d_un_utilisateur) ;
+                 $simplificateur->execute_la_recherche($recherche_du_nom_utilisateur) ; //cette methode me permet d executer ma requete de  recherche
+                 $tableau_nom_de_l_utilisateur =   $simplificateur->stocke_le_resultat_de_la_requete( $recherche_du_nom_utilisateur,"nom_d_utilisateur") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
+                 $nom_de_l_utilisateur =  $tableau_nom_de_l_utilisateur[0] ; //recuperation du nom de l ecran
+                       
+                 $recherche_du_nombre_de_commande = $ma_base_de_donnee->connexion->prepare("SELECT nombre_de_plat FROM commandes WHERE id_utilisateur = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
+                 $recherche_du_nombre_de_commande->bind_param("i",$id_specifique_d_un_utilisateur) ;
+                 $simplificateur->execute_la_recherche( $recherche_du_nombre_de_commande) ; //cette methode me permet d executer ma requete de  recherche
+                 $tableau_du_nombre_de_commande = $simplificateur->stocke_le_resultat_de_la_requete( $recherche_du_nombre_de_commande,"nombre_de_plat") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
+                 $nombre_total_de_plat_consomme = sommeTableau( $tableau_du_nombre_de_commande ) ; //cette variable va me permettre de compter le nombre de plat consommer par une personne
+                 
                     
-                ] ;
+                 $tableau_de_personne_avec_le_total_de_plat_consomme[$id_specifique_d_un_utilisateur] = [
+                   
+                     "nom_de_l_utilisateur" =>  $nom_de_l_utilisateur,
+                     "nombre_total_de_plat_consomme" =>   $nombre_total_de_plat_consomme
+                     
+                 ] ;
+ 
+             }
 
-            }
-
-            $tableau_de_personne_avec_le_total_de_plat_consomme  = topDixUtilisateurs($tableau_de_personne_avec_le_total_de_plat_consomme) ; //cette méthode va me permettre de classer un tableau avec dix meilleurs nombres de plats
-           
-            foreach ($tableau_de_personne_avec_le_total_de_plat_consomme  as $personne_avec_le_total_de_plat_consomme) {
+          
+ 
+             $tableau_de_personne_avec_le_total_de_plat_consomme  = topDixUtilisateurs($tableau_de_personne_avec_le_total_de_plat_consomme) ; //cette méthode va me permettre de classer un tableau avec dix meilleurs nombres de plats
+            
+             foreach ($tableau_de_personne_avec_le_total_de_plat_consomme  as $key => $personne_avec_le_total_de_plat_consomme) {
+                 
+                 affichage_meilleur_client($personne_avec_le_total_de_plat_consomme["nom_de_l_utilisateur"],$personne_avec_le_total_de_plat_consomme["nombre_total_de_plat_consomme"],$key+1) ;
+ 
+             }
+ 
+ 
                 
-                affichage_meilleur_client($personne_avec_le_total_de_plat_consomme["nom_de_l_utilisateur"],$personne_avec_le_total_de_plat_consomme["nombre_total_de_plat_consomme"]) ;
-
-            }
-
-
-               
-         ?>
-         
-            <br>
-            <br>
-        
+          ?>
+            
         </div>
-    
+      
+
+       
     </div>
 
     <!-- Footer -->
@@ -166,10 +169,11 @@ function affichage_meilleur_client($nom_de_mon_client,$nombre_de_plat_du_client)
                     <a href="#">  <img src="images/Button twitter 2.png" alt="Twitter"> <i class="bi bi-twitter"></i></a>
                     <a href="#">  <img src="images/Button (2) 2.png" alt="IG"> <i class="bi bi-linkedin"></i></a>
                     
+
                 </div>
             </div>
             <div>
-                <p>Localisation</p>
+                <p>Localisation :</p>
                 <ul>
                     <li>Yansoki / Yatchika</li>
                     <li>Situé précisément à la cité Terrasse</li>

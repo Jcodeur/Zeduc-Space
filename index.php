@@ -23,6 +23,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formulaire_de_connexion_employe.php">Employe</a>
+                    </li>
 					<li class="nav-item">
                         <a class="nav-link" href="formulaire_d_inscription.php">Inscription</a>
                     </li>
