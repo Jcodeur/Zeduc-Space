@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Promotions</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="GestionEvent.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <!-- Place here your logo image -->
+                <img src="../logo.png" alt="Logo" width="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Employés</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./StatistiqueAdmin/DailyStat.html">Statistiques</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Promotions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Réclamations Clients</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " href="#" >Paramètres </a>
+                    </li>
+                </ul>
+                <a class="btn btn-warning" href="#">LogOut</a>
+            </div>
+            <div class="ecriture">
+                essai  
+            </div>
+        </div>
+    </nav>
+    <h2 class="Titre text-center">GESTION DES PROMOTIONS</h2>
+
+    <!-- Section Gestion des Promotions -->
+    <div class="container mt-5">
+        
+
+        <div class="row mt-4">
+            <!-- Ajout d'un Event -->
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header text-center ">
+                        <h5>Ajout d'un Event</h5>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="nomEvent">Nom Event</label>
+                                <input type="text" class="form-control" id="nomEvent" placeholder="Entrer le nom de l'événement">
+                            </div>
+                            <div class="form-group">
+                                <label for="commentaire">Commentaire</label>
+                                <textarea class="form-control" id="commentaire" rows="3" placeholder="Ajouter un commentaire"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="image">Image</label>
+                                <input type="file" class="form-control-file" id="image">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Valider</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Suppression d'un plat -->
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header text-center ">
+                        <h5>Supprimer un Menu de la Carte</h5>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="nomPlat">Nom du plat à supprimer</label>
+                                <input type="text" class="form-control" id="nomPlat" placeholder="Entrer le nom du plat">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Valider</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Liste des événements -->
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="feteX.jpg" class="card-img-top" alt="Fête Des X">
+                    <div class="card-body">
+                        <h5 class="card-title">Fête Des X</h5>
+                        <p class="card-text">Célébrons l'innovation et la créativité dans l'informatique ensemble</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="feteO.jpg" class="card-img-top" alt="Fête des O">
+                    <div class="card-body">
+                        <h5 class="card-title">Fête des O</h5>
+                        <p class="card-text">Un moment convivial pour échanger et partager nos expériences généralistes</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="feteO.jpg" class="card-img-top" alt="Fête des O">
+                    <div class="card-body">
+                        <h5 class="card-title">Fête des O</h5>
+                        <p class="card-text">Un moment convivial pour échanger et partager nos expériences généralistes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Contact :</h5>
+                    <p>Telephone : +237 666666666</p>
+                    <p>Email : Zeducspace@gmail.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Social Media :</h5>
+                    <div class="social-icons">
+                        <a href="#">  <img src="../Buttonfacebook 2.png" alt="Facebook">  <i class="bi bi-facebook"></i></a>
+                        <a href="#">  <img src="../Button twitter 2.png" alt="Twitter"> <i class="bi bi-twitter"></i></a>
+                        <a href="#">  <img src="../Button (2) 2.png" alt="IG"> <i class="bi bi-linkedin"></i></a>
+                    
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Localisation :</h5>
+                    <p>Yansoki /Yatchika</p>
+                    <p>Situé précisément à la cité Terrasse</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

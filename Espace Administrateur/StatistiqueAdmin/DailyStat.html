@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily_Stat ZEDUC-SP@CE</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="DailyStat.css">
+</head>
+<body>
+    
+
+    <header>
+
+        <!-- Navbar -->
+    
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <!-- Place here your logo image -->
+                    <img src="../logo.png" alt="Logo" width="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Employés</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Statistiques</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Promotions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Réclamations Clients</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link " href="#" >Paramètres </a>
+                        </li>
+                    </ul>
+                    <a class="btn btn-warning" href="#">LogOut</a>
+                </div>
+                <div class="ecriture">
+                    essai  
+                </div>
+            </div>
+        </nav>
+    
+    <div class="Titre"><h2  class="text-center" >STATISTIQUES JOURNALIERE </h2></div>
+    </header>
+    
+<br>
+<br>
+<br>
+    <div class=" Corps">
+        <section class="text-center mb-5">
+            
+            <h3> RECAPITULATIF DE VENTE </h3>
+            <hr class="w-50 mx-auto">
+        </section>
+
+        <div class="container my-5">
+            <div class="Dailystat">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Nom du plat</th>
+                            <th>Qte Préparée</th>
+                            <th>Qte Non vendu</th>
+                            <th>Qte Vendu</th>
+                            <th>Prix Unitaire</th>
+                            <th>RECETTE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="ligne1">
+                            <td>Produit 1</td>
+                            <td>20</td>
+                            <td>5</td>
+                            <td>15</td>
+                            <td>1000 FCFA</td>
+                            <td>15000 FCFA</td>
+                        </tr>
+                        <tr id="ligne2">
+                            <td>Produit 2</td>
+                            <td>10</td>
+                            <td>3</td>
+                            <td>7</td>
+                            <td>1000 FCFA</td>
+                            <td>7000 FCFA</td>
+                        </tr>
+                        <tr id="ligne3">
+                            <td>Produit 3</td>
+                            <td>15</td>
+                            <td>10</td>
+                            <td>5</td>
+                            <td>1500 FCFA</td>
+                            <td>7500 FCFA</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td colspan="6" class="text-end">RECETTE JOURNALIERE :</td>
+                        </tr>
+                    </tbody>
+                </table>
+               
+            </div>
+        
+        </div>
+
+
+        <div class="container my-5">
+
+            <section class="text-center mb-5">
+            
+                <h3> RECAPITULATIF POINT DE PARAINAGE </h3>
+                <hr class="w-50 mx-auto">
+            </section>
+
+            <div class="Dailystat">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Nom Utilisateur </th>
+                            <th>Qte Points au départ </th>
+                            <th>Qte Points Utilisé</th>
+                            <th>Qte Points Restants</th>
+                            <th>Pourcentage Utilisé</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="ligne1">
+                            <td>Daniel</td>
+                            <td>20</td>
+                            <td>5</td>
+                            <td>15</td>
+                            <td>25%</td>
+                           
+                        </tr>
+                        <tr id="ligne2">
+                            <td>Jeremy</td>
+                            <td>10</td>
+                            <td>3</td>
+                            <td>7</td>
+                            <td>70%</td>
+                            
+                        </tr>
+                        <tr id="ligne3">
+                            <td>Joseph</td>
+                            <td>15</td>
+                            <td>10</td>
+                            <td>5</td>
+                            <td>%</td>
+                            
+                        </tr>
+                        
+                    </tbody>
+                </table>
+               
+            </div>
+        
+        </div>
+
+    </div>
+
+     <!-- Footer -->
+     <footer class="text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Contact :</h5>
+                    <p>Telephone : +237 666666666</p>
+                    <p>Email : Zeducspace@gmail.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Social Media :</h5>
+                    <div class="social-icons">
+                        <a href="#">  <img src="../Buttonfacebook 2.png" alt="Facebook">  <i class="bi bi-facebook"></i></a>
+                        <a href="#">  <img src="../Button twitter 2.png" alt="Twitter"> <i class="bi bi-twitter"></i></a>
+                        <a href="#">  <img src="../Button (2) 2.png" alt="IG"> <i class="bi bi-linkedin"></i></a>
+                    
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Localisation :</h5>
+                    <p>Yansoki /Yatchika</p>
+                    <p>Situé précisément à la cité Terrasse</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

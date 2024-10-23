@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.Titre
+{
+    padding: 20px;
+    background-color: #bbb;
+    justify-content: center;
+    justify-items: center;
+}
+
+.ecriture
+{
+    color: #ffae00;
+    text-transform: uppercase;
+    margin-top: 15px;
+    
+}
+.navbar {
+    background-color: #343a40;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    text-transform: uppercase;
+}
+
+.ecriture
+{
+    color: #ffae00;
+    text-transform: uppercase;
+    margin-top: 10px;
+    
+}
+
+.btn
+{
+    background: #c5c5c5;
+    border-color: #bbb;
+}
+
+
+.choice
+{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+    
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    justify-items: center;
+    justify-content: left;
+}
+
+.card2 {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    justify-items: center;
+    justify-content: left;
+    justify-content: space-between;
+    column-gap: 30px;
+    
+}
+
+.col-mb-12
+{
+    margin-bottom: 30px;
+    
+
+}
+
+
+.custom-card-header {
+    background-color: #b1b6b9; /* Couleur bleue personnalisée */
+    padding: 15px;
+}
+
+.text-white {
+    color: #fff;
+}
+
+
+/* Footer personnalisé pour être plus petit et responsive */
+footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 20px 0;
+}
+
+footer h6 {
+    font-weight: bold;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    footer .col-md-4 {
+        margin-bottom: 20px;
+    }
+}
