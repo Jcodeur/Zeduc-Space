@@ -39,7 +39,7 @@ if (isset($_SESSION["avertissement"])){
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="formulaire_de_connexion_administrateur.php">Administrateur</a>
+                        <a class="nav-link" href="formulaire_de_connexion_administrateur.php">Administrateur/Gerant</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="formulaire_de_connexion_employe.php">Employe</a>

@@ -26,7 +26,13 @@
   $simplificateur->execute_la_recherche($recherche_du_nom_utilisateur) ; //cette methode me permet d executer ma requete de  recherche
   $tableau_nom_de_l_utilisateur =   $simplificateur->stocke_le_resultat_de_la_requete( $recherche_du_nom_utilisateur,"nom_administrateur") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
   $nom_de_l_utilisateur =  $tableau_nom_de_l_utilisateur[0] ; //recuperation du nom de l ecran
-        
+
+  $recherche_du_role = $ma_base_de_donnee->connexion->prepare("SELECT role FROM administrateur WHERE id_administrateur = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
+  $recherche_du_role->bind_param("i",$identifiant_unique) ;
+  $simplificateur->execute_la_recherche($recherche_du_role) ; //cette methode me permet d executer ma requete de  recherche
+  $tableau_de_role =   $simplificateur->stocke_le_resultat_de_la_requete( $recherche_du_role,"role") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
+  $mon_role =   $tableau_de_role[0] ; //recuperation de l utilisateur
+            
 
 ?>
 
@@ -85,14 +91,20 @@ function affichage_des_statistiques($nom_du_produit,$quantite_du_produit,$pource
                             <a class="nav-link" href="gestion_des_reclamations_administrateur.php">Reclamations</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="gestion_de_promotion_administrateur.php">Promotion</a>
-                        </li>
+                        <?php
+                            if ( $mon_role == 'admin') {
+                                // Si l'utilisateur n'est pas 'Bernard', afficher l'élément de navigation
+                                echo '
+                                <li class="nav-item">
+                                    <a class="nav-link" href="gestion_de_promotion_administrateur.php">Promotion</a>
+                                </li>';
 
-                        
-                        <li class="nav-item ">
-                            <a class="nav-link " href="formulaire_de_politique_administrateur.php" >Paramètres </a>
-                        </li>
+                                echo '
+                                <li class="nav-item ">
+                                <a class="nav-link " href="formulaire_de_politique_administrateur.php" >Paramètres </a>
+                                </li>';
+                            }
+                        ?>
                             
                         <li class="nav-item">
                             <a class="btn btn-warning" href="deconnection.php">LogOut</a>

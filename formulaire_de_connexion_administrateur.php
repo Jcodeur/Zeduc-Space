@@ -49,7 +49,7 @@
         </div>
     </nav>
      
-    <div class="Titre text-center"> <h3> CONNEXION ADMINISTRATEUR </h3>  </div>
+    <div class="Titre text-center"> <h3> CONNEXION ADMINISTRATEUR / GERANT </h3>  </div>
     <!-- Form Section -->
     <div class="container">
         <div class="form-container">
