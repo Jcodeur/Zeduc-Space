@@ -1,22 +1,15 @@
-
-
 <?php 
+
 
 require "pop_pup.php" ;
 session_start() ;
 
-  
-$identifiant_unique = $_SESSION["identifiant"]   ;
-  
-
-
 if (isset($_SESSION["avertissement"])){
-	
-   $avertissement = $_SESSION["avertissement"] ;
-   appelle_pop_pup($avertissement,"formulaire_de_mise_a_jour_du_menu.php") ; //cette fonction me permet d afficher mon pup pop et de rediriger ma page apres la fermeture du pop pup 
-				
+    
+    $avertissement = $_SESSION["avertissement"] ;
+    appelle_pop_pup($avertissement,"gestion_du_menu_administrateur.php") ; //cette fonction me permet d afficher mon pup pop et de rediriger ma page apres la fermeture du pop pup 
+                    
 }
-
 
 require "interaction_sur_la_base_de_donnee.php" ;//ensuite appel du fichier qui va me permettre de me connecter a ma base de donnée
 
@@ -24,14 +17,19 @@ $ma_base_de_donnee = new interaction() ; ///creation d un objet
 $ma_base_de_donnee->connexion_sur_la_BD("localhost","root","","zeduc_space") ; //methode me permettant de me connecter a ma base de donée
 
 require "simplificateur_de_syntaxe.php" ;  //ceci est la recuperation d un fichier contenant une classe avec des methodes pour simplifier la syntaxe de mes requetes
-$simplificateur = new Simplificateur_de_syntaxe("formulaire_de_mise_a_jou_du_menu") ; //creation d un objet qui va m aider a creer ma liste de presence
+$simplificateur = new Simplificateur_de_syntaxe("gestion_du_menu_administrateur") ; //creation d un objet qui va m aider a creer ma liste de presence
 
-$recherche_du_nom_utilisateur = $ma_base_de_donnee->connexion->prepare("SELECT nom_employe FROM employes WHERE id_employe = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
+
+$identifiant_unique = $_SESSION["identifiant"]   ;
+
+$recherche_du_nom_utilisateur = $ma_base_de_donnee->connexion->prepare("SELECT nom_administrateur FROM administrateur WHERE id_administrateur = ? ; ") ;//prepration de ma requete de ma requete qui va chercher le nom de l utilisateur
 $recherche_du_nom_utilisateur->bind_param("i",$identifiant_unique) ;
 $simplificateur->execute_la_recherche($recherche_du_nom_utilisateur) ; //cette methode me permet d executer ma requete de  recherche
-$tableau_nom_de_l_utilisateur =   $simplificateur->stocke_le_resultat_de_la_requete( $recherche_du_nom_utilisateur,"nom_employe") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
+$tableau_nom_de_l_utilisateur =   $simplificateur->stocke_le_resultat_de_la_requete( $recherche_du_nom_utilisateur,"nom_administrateur") ;//ceci est une methode qui me permet de stocker les identifiants de tout ceux qui doivent reçevoir la liste
 $nom_de_l_utilisateur =  $tableau_nom_de_l_utilisateur[0] ; //recuperation du nom de l ecran
           
+
+ 
 
   function affiche_le_plat($chaine_id_plat,$nom_du_plat){
 ?>
@@ -70,21 +68,29 @@ $nom_de_l_utilisateur =  $tableau_nom_de_l_utilisateur[0] ; //recuperation du no
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                  
-                   <li class="nav-item">
-                        <a class="nav-link" href="formulaire_de_gestion_des_commandes.php">Commandes</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formulaire_d_administrateur_de_gestion_d_employe.php">Employes</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="formulaire_de_mise_a_jour_du_menu.php">Mises à jour du menu</a>
+                        <a class="nav-link" href="gestion_du_menu_administrateur.php">Menu</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="gestion_des_statistiques_administrateur.php">Statistiques</a>
+                    </li>
+                   
+                    <li class="nav-item">
+                        <a class="nav-link" href="gestion_des_reclamations_administrateur.php">Reclamations</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="formulaire_de_validation_reclamation.php">Réclamations Clients</a>
+                        <a class="nav-link" href="gestion_de_promotion_administrateur.php">Promotion</a>
                     </li>
 
+                    
                     <li class="nav-item ">
-                        <a class="nav-link " href="formulaire_de_statistique.php" >  Statistiques  </a> 
+                        <a class="nav-link " href="formulaire_de_politique_administrateur.php" >Paramètres </a>
                     </li>
                     
                     <li class="nav-item">
@@ -95,7 +101,7 @@ $nom_de_l_utilisateur =  $tableau_nom_de_l_utilisateur[0] ; //recuperation du no
                 
             </div>
             <div class="ecriture">
-               <?php echo  "Hey , ".$nom_de_l_utilisateur ;?>
+               <?php echo "Hey ,  ".$nom_de_l_utilisateur ; ?>
             </div>
         </div>
     </nav>
@@ -114,7 +120,7 @@ $nom_de_l_utilisateur =  $tableau_nom_de_l_utilisateur[0] ; //recuperation du no
                         <h5>Modification d'un plat</h5>
                     </div>
                     <div class="choice">
-                        <form class="list-choice" method="post" action="backend_de_mise_a_jour_du_menu.php">
+                        <form class="list-choice" method="post" action="backend_de_mise_a_jour_du_menu_administrateur.php">
                             
 		            <?php 
                                                 

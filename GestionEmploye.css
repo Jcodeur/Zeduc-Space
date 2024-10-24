@@ -20,7 +20,7 @@ body {
     
 }
 .navbar {
-    background-color: #343a40;
+    background-color: black;
 }
 
 .nav-link {
@@ -70,9 +70,14 @@ body {
 
 }
 
+.Part2
+{
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
 
 .custom-card-header {
-    background-color: #b1b6b9; /* Couleur bleue personnalisée */
+    background-color: #cfbd97; /* Couleur bleue personnalisée */
     padding: 15px;
 }
 
@@ -83,7 +88,7 @@ body {
 
 /* Footer personnalisé pour être plus petit et responsive */
 footer {
-    background-color: #343a40;
+    background-color: black;
     color: #fff;
     padding: 20px 0;
 }

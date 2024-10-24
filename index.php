@@ -1,3 +1,18 @@
+<?php
+
+require "pop_pup.php" ;
+session_start() ;
+
+if (isset($_SESSION["avertissement"])){
+	
+   $avertissement = $_SESSION["avertissement"] ;
+   appelle_pop_pup($avertissement,"index.php") ; //cette fonction me permet d afficher mon pup pop et de rediriger ma page apres la fermeture du pop pup 
+				
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -22,6 +37,9 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formulaire_de_connexion_administrateur.php">Administrateur</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="formulaire_de_connexion_employe.php">Employe</a>

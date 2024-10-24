@@ -65,7 +65,7 @@ function affiche_la_commande($identifiant_de_la_commande,$date_de_la_commande, $
                     </li>
                  
                     <li class="nav-item">
-                       <a class="btn btn-warning" href="#">Log out</a>
+                       <a class="btn btn-warning" href="deconnection.php">Log out</a>
                     </li>
 
                 </ul>

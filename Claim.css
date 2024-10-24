@@ -15,7 +15,6 @@ body {
 
 .ecriture
 {
-
     color: #ffae00;
     text-transform: uppercase;
     margin-top: 8px;
@@ -24,14 +23,17 @@ body {
 }
 
 .Titre {
-    background-color: #D9D9D9;
+    background-color: #cfbd97;
     padding: 20px;
     width: 100%;
+    justify-content: center;
+    justify-items: center;
 }
+
 
 /* Navbar */
 .navbar {
-    background-color: #343a40;
+    background-color: black ;
 }
 
 .nav-link {
@@ -125,7 +127,7 @@ h1, h2 {
 
 /* Footer */
 footer {
-    background-color: #343a40;
+    background-color: #000;
     color: #ffffff;
     padding: 20px;
     position: relative;

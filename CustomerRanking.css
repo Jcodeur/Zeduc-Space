@@ -14,7 +14,7 @@ body {
 }
 
 .navbar {
-    background-color: #343a40;
+    background-color: black;
 }
 
 .nav-link {
@@ -46,7 +46,10 @@ body {
     background-color: #cfbd97;
     padding: 20px;
     width: 100%;
+    justify-content: center;
+    justify-items: center;
 }
+
 
 .ecriture
 {
@@ -80,7 +83,7 @@ body {
 
 /* Footer */
 footer {
-    background-color: #343a40;
+    background-color: black;
     color: #ffffff;
     padding: 20px;
     position: relative;

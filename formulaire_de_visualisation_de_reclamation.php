@@ -59,7 +59,7 @@
                         <a class="nav-link" href="formulaire_de_reclamation.php">Services Clients</a>
                     </li>
                     <li class="nav-item">
-                       <a class="btn btn-warning" href="#">Log out</a>
+                       <a class="btn btn-warning" href="deconnection.php">Log out</a>
                     </li>
                   
                 </ul>

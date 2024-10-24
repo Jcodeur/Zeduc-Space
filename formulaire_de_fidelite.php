@@ -47,7 +47,7 @@
                         <a class="nav-link" href="page_de_l_utilisateur.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-warning" href="#">Log out</a>
+                        <a class="btn btn-warning" href="deconnection.php">Log out</a>
                     </li>
                    
                 </ul>

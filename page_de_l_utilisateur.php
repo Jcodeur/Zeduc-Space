@@ -98,7 +98,7 @@
                         </ul>
                     </li>
                 </ul>
-                <a class="btn btn-warning" href="#">Logout</a>
+                <a class="btn btn-warning" href="deconnection.php">Logout</a>
             </div>
                 
 			<div class="ecriture"><p> <h6 style ="color :white; ">Bienvenue sur Zeduc Space </h6> <?php echo$nom_de_l_utilisateur ;?> </div></p>

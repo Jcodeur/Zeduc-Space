@@ -7,33 +7,21 @@
 
 /* Navbar */
 .navbar, .footer {
-    background-color: #000;
+    background-color: #2a2a2a;
     padding: 10px 20px;
     justify-content: space-between;
 }
 
 .Titre {
-    background-color: #cfbd97;
+    background-color: #bbb;
     padding: 20px;
-    width: 100%;
-    justify-content: center;
-    justify-items: center;
-}
-
-
-
-/* Formulaire */
-.form-container {
-    max-width: 400px;
-    margin: 50px auto;
     text-align: center;
-    padding: 20px;
-    flex-grow: 1;
 }
 
-.logo {
-    width: 50px;
-    height: 50px;
+.ecriture {
+    color: #ffae00;
+    text-transform: uppercase;
+    margin-top: 15px;
 }
 
 h2 {
@@ -41,18 +29,31 @@ h2 {
     font-weight: bold;
 }
 
-/* Pour centrer le titre de création de compte */
-hr {
-    border: 1px solid #000;
+main
+{
+    
+    margin-bottom: 220px;
 }
 
-
-/* Bouton de soumission */
-.btn-block {
-    padding: 10px;
-    font-size: 18px;
+/* Cards */
+.card {
+    border: none;
+    border-radius: 10px;
+    background-color: #f9f9f9;
 }
 
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 16px;
+}
 
 /* Footer */
 footer {
@@ -61,15 +62,12 @@ footer {
     padding: 20px 0;
     width: 100%;
     text-align: left;
-    margin-top: 200px;
-    margin-bottom: 0%;
-    height: 150px;
-
 }
 
 footer ul {
     list-style-type: none;
 }
+
 /* Images des réseaux sociaux */
 footer img {
     height: 30px;
@@ -77,14 +75,28 @@ footer img {
 }
 
 /* Responsive design */
-@media (max-width: 576px) {
-    .logo {
-        width: 40px;
-        height: 40px;
+@media (max-width: 768px) {
+    .card-title {
+        font-size: 20px;
+    }
+
+    .card-text {
+        font-size: 14px;
     }
 
     footer img {
         height: 25px;
         width: 25px;
+    }
+}
+
+@media (max-width: 576px) {
+    .Titre h2 {
+        font-size: 24px;
+    }
+
+    footer img {
+        height: 20px;
+        width: 20px;
     }
 }

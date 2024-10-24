@@ -50,7 +50,7 @@
                     </li>
                   
                 </ul>
-                <a class="btn btn-warning" href="#">Log out</a>
+                <a class="btn btn-warning" href="deconnection.php">Log out</a>
             </div>
             <div class="ecriture">
                 <?php echo "Hey , ".$nom_de_l_utilisateur ;?>
@@ -84,8 +84,9 @@
     
     <!-- Main Content -->
     <div class="container my-5">
-        <div class="row" id="eventsContainer"> 
-        </div>
+            <div id="eventsContainer" class="row">
+                <!-- Les cartes d'événements seront insérées ici par le JavaScript -->
+            </div> 
     </div>
 
     <!-- Footer -->
@@ -121,7 +122,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- FontAwesome for icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script src="evenement/Eventjs.js"></script>
+    <script src="ScriptCard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

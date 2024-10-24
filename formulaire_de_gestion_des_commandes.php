@@ -83,7 +83,7 @@ function affiche_la_validite_de_la_reclamation($id_commande,$date_de_commande,$n
                     </li>
                     
                     <li class="nav-item">
-                       <a class="btn btn-warning" href="#">LogOut</a>
+                       <a class="btn btn-warning" href="deconnection.php">LogOut</a>
                     </li>
                    
                 </ul>

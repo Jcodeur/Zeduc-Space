@@ -22,7 +22,7 @@ body {
 
 /* Navbar */
 .navbar {
-    background-color: #343a40;
+    background-color: black;
 }
 
 .nav-link {
@@ -118,7 +118,7 @@ h1, h2 {
 
 /* Footer */
 footer {
-    background-color: #343a40;
+    background-color: black;
     color: #ffffff;
     padding: 20px;
     position: relative;

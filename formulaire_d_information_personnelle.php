@@ -71,7 +71,7 @@
                   
                   
                 </ul>
-                <a class="btn btn-warning" href="#">Log out</a>
+                <a class="btn btn-warning" href="deconnection.php">Log out</a>
             </div>
            
         </div>

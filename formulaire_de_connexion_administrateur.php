@@ -6,7 +6,7 @@
 	if (isset($_SESSION["avertissement"])){
 		
 		$avertissement = $_SESSION["avertissement"] ;
-		appelle_pop_pup($avertissement,"formulaire_de_connexion_employe.php") ; //cette fonction me permet d afficher mon pup pop et de rediriger ma page apres la fermeture du pop pup 
+		appelle_pop_pup($avertissement,"formulaire_de_connexion_administrateur.php") ; //cette fonction me permet d afficher mon pup pop et de rediriger ma page apres la fermeture du pop pup 
 						
 	}
 
@@ -42,16 +42,14 @@
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
                   
-                 
-                 
                 </ul>
-            
+                
             </div>
             
         </div>
     </nav>
      
-    <div class="Titre text-center"> <h3> CONNEXION EMPLOYE </h3>  </div>
+    <div class="Titre text-center"> <h3> CONNEXION ADMINISTRATEUR </h3>  </div>
     <!-- Form Section -->
     <div class="container">
         <div class="form-container">
@@ -59,7 +57,7 @@
             
 
             
-            <form method="post" action="backend_de_connexion_employe.php" >
+            <form method="post" action="backend_connexion_administrateur.php" >
                 <div class="mb-3">
                     <input type="email" class="form-control form-control-lg" name="mail" placeholder="Email" required>
                 </div>

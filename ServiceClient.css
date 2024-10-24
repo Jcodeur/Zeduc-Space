@@ -6,7 +6,7 @@
 
 /* Navbar */
 .navbar {
-    background-color: #2a2a2a;
+    background-color: black;
     padding: 10px 20px;
     justify-content: space-between;
 }
@@ -29,12 +29,13 @@ input[type="text"]:focus {
 }
 
 .Titre {
-    background-color: #bbb;
+    background-color: #cfbd97;
     padding: 20px;
     width: 100%;
     justify-content: center;
     justify-items: center;
 }
+
 
 .ecriture
 {
@@ -73,7 +74,7 @@ form .form-group {
 
 /* Footer */
 footer {
-    background-color: #343a40;
+    background-color: black;
     color: #ffffff;
     padding: 20px;
     width: 100%;

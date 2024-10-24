@@ -98,7 +98,7 @@
 
                   
                 </ul>
-                <a class="btn btn-warning" href="#">LogOut</a>
+                <a class="btn btn-warning" href="deconnection.php">LogOut</a>
             </div>
             <div class="ecriture">
                 <?php echo  "Hey , ".$nom_de_l_utilisateur ; ?>

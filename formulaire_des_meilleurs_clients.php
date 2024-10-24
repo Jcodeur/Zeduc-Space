@@ -45,12 +45,11 @@
 function affichage_meilleur_client($nom_de_mon_client,$nombre_de_plat_du_client,$position_du_client){
 ?>
 <div class="col-4 text-center">
-   <div class="usericon"><img src="./user-icon.png" alt="1er" class="customer-icon"></div>
-        <div class="Infos" > 
-            <div class="Nomclientclasse"><?php echo $nom_de_mon_client ;?></div>
-            <div class="nbre_plat"><?php echo $nombre_de_plat_du_client." Plats a son actif " ;?></div>
-        </div>
+   <div class="usericon"><img src="images/user-icon.png" alt="1er" class="customer-icon"></div>
+       
     <p class="rank"><?php echo $position_du_client." e" ;?></p>
+    <p class="rank"><?php echo $nom_de_mon_client ;?></p>
+    <p class="rank"><?php echo $nombre_de_plat_du_client." Plats a son actif " ;?></p>
 </div>
 <?php 
 }
@@ -81,7 +80,7 @@ function affichage_meilleur_client($nom_de_mon_client,$nombre_de_plat_du_client,
                         <a class="nav-link" href="page_de_l_utilisateur.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-warning" href="#">Log out</a>
+                        <a class="btn btn-warning" href="deconnection.php">Log out</a>
                     </li>
                     
                 </ul>

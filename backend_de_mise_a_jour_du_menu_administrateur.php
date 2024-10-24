@@ -42,7 +42,7 @@ session_start() ;
 
 $_SESSION["avertissement"] = "menu mis a jour" ; //cette ligne me permet d envoyer un message qui va signaler la mise a jour de mon menu
 
-header("Location:formulaire_de_mise_a_jour_du_menu.php?error=carte du menu mis a jour");//redirection de ma page vers la page de connexion
+header("Location:gestion_du_menu_administrateur.php?error=carte du menu mis a jour");//redirection de ma page vers la page de connexion
 exit();//fermeture de la redirection
        
 
